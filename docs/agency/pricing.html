@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — Agency console</title>
+<meta name="description" content="Set the markup, caps and promotional codes for this storefront.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/agency/pricing.html">
+<meta property="og:title" content="Pricing — Agency console">
+<meta property="og:description" content="Set the markup, caps and promotional codes for this storefront.">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/icon-180.png">
+<link rel="preload" href="../assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/app.css">
+<link rel="stylesheet" href="../assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="" data-depth="1" data-page="agency/pricing">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band band-tight" aria-labelledby="ac-title">
+  <div class="wrap">
+    <span class="eyebrow">Agency console</span>
+    <h1 id="ac-title" style="font-size:var(--step-3)">Pricing</h1>
+    <nav class="tabs mt-6" id="console-nav" aria-label="Console sections"></nav>
+    <div id="console" data-screen="pricing"></div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="../assets/js/pages/agency.js"></script>
+</body>
+</html>

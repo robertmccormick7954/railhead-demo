@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travellers — Railhead</title>
+<meta name="description" content="Passenger details, station assistance and extras for your booking.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/book.html">
+<meta property="og:title" content="Travellers — Railhead">
+<meta property="og:description" content="Passenger details, station assistance and extras for your booking.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="book" data-depth="0" data-page="book">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band band-tight" aria-labelledby="book-title">
+  <div class="wrap">
+    <ol class="stepper" id="stepper" aria-label="Booking progress"></ol>
+    <div class="grid grid-sidebar">
+      <div>
+        <h1 id="book-title" style="font-size:var(--step-3)">Who is travelling</h1>
+        <p class="text-soft mt-2">Names must match the photo identification each traveller will carry.</p>
+
+        <form id="book-form" novalidate>
+          <div id="passengers" class="mt-6"></div>
+
+          <fieldset class="fieldset card mt-6" id="assistance-block">
+            <legend class="legend">Station assistance</legend>
+            <p class="text-soft" style="font-size:var(--step--1)">
+              Tell us here and it travels with the reservation. You do not need to telephone anyone,
+              and there is no limit on how many people in your party can request it.
+            </p>
+            <div id="assistance-fields" class="mt-4"></div>
+          </fieldset>
+
+          <fieldset class="fieldset card mt-6">
+            <legend class="legend">Extras</legend>
+            <div class="grid grid-3" id="extras"></div>
+            <p class="field-help">Carrier rules decide what can travel on each service. Anything unavailable on your train is refused at this step, not after payment.</p>
+          </fieldset>
+
+          <fieldset class="fieldset card mt-6">
+            <legend class="legend">Contact details</legend>
+            <p class="text-soft" style="font-size:var(--step--1)">
+              We send the ticket here. You do not need an account.
+            </p>
+            <div class="grid grid-2 mt-4" id="contact"></div>
+          </fieldset>
+
+          <div class="row row-wrap mt-8" style="gap:var(--sp-4)">
+            <button class="btn btn-lg" type="submit">Continue to payment</button>
+            <a class="btn btn-secondary btn-lg" href="search.html" id="back-link">Change trains</a>
+          </div>
+          <p class="field-error mt-4" id="form-error" role="alert"></p>
+        </form>
+      </div>
+      <aside class="card" id="summary" aria-label="Trip summary"></aside>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/book.js"></script>
+</body>
+</html>

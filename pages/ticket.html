@@ -1,0 +1,18 @@
+<!--railhead
+{"title":"Your ticket — Railhead","description":"View, print or download your travel documents.","script":"ticket","nav":"manage"}
+-->
+<section class="band band-tight" aria-labelledby="ticket-title">
+  <div class="wrap">
+    <div class="row row-between row-wrap no-print" style="gap:var(--sp-4)">
+      <div>
+        <h1 id="ticket-title" style="font-size:var(--step-3)">Travel documents</h1>
+        <p class="text-soft" id="ticket-sub"></p>
+      </div>
+      <div class="row row-wrap" style="gap:var(--sp-3)">
+        <button class="btn btn-secondary" type="button" id="print">Print</button>
+        <button class="btn" type="button" id="download">Download PDF</button>
+      </div>
+    </div>
+    <div id="tickets" class="mt-6"></div>
+  </div>
+</section>

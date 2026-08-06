@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trains — Railhead</title>
+<meta name="description" content="Compare real Amtrak services, fare classes and accommodations for your dates.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/search.html">
+<meta property="og:title" content="Trains — Railhead">
+<meta property="og:description" content="Compare real Amtrak services, fare classes and accommodations for your dates.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="book" data-depth="0" data-page="search">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band band-tight band-surface" aria-label="Change your search">
+  <div class="wrap">
+    <div id="search-mount"></div>
+  </div>
+</section>
+
+<section class="band band-tight" aria-labelledby="results-title">
+  <div class="wrap">
+    <ol class="stepper" id="stepper" aria-label="Booking progress"></ol>
+
+    <div class="row row-between row-wrap mb-4" style="gap:var(--sp-4)">
+      <div>
+        <h1 id="results-title" style="font-size:var(--step-3)">Choose your train</h1>
+        <p class="text-soft" id="results-summary"></p>
+      </div>
+      <div class="row" style="gap:var(--sp-3)">
+        <label class="label" for="sort" style="margin:0;font-size:var(--step--2)">Sort by</label>
+        <select class="select" id="sort" style="width:auto;min-height:40px;padding-block:6px;font-size:var(--step--1)">
+          <option value="dep">Departure time</option>
+          <option value="dur">Journey time</option>
+          <option value="price">Price</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="calendar-wrap" class="card mb-4" hidden>
+      <div class="row row-between row-wrap" style="gap:var(--sp-3)">
+        <h2 style="font-size:var(--step-0)">Cheapest nearby dates</h2>
+        <p class="text-mute" style="font-size:var(--step--2);margin:0">
+          Lead-in adult fare, one way, including the agency charge
+        </p>
+      </div>
+      <div class="table-scroll mt-4">
+        <div id="calendar" class="row" style="gap:var(--sp-2);min-width:max-content"></div>
+      </div>
+    </div>
+
+    <div class="grid grid-sidebar">
+      <div>
+        <div id="filters" class="card mb-4"></div>
+        <div id="results" aria-live="polite"></div>
+      </div>
+      <aside class="card" id="basket" aria-label="Your selection"></aside>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/search.js"></script>
+</body>
+</html>

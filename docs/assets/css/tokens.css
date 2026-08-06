@@ -1,0 +1,223 @@
+/* ==========================================================================
+   Railhead — design tokens
+   --------------------------------------------------------------------------
+   Every visual decision on this platform resolves to a custom property declared
+   here. That is what makes the product white-labellable: a tenant's brand is a
+   small JSON object that overrides a subset of these, injected at :root by
+   assets/js/theme.js. Nothing downstream hard-codes a colour or a typeface.
+
+   Layer 1  --rh-*   raw palette, the house brand only
+   Layer 2  semantic (--brand, --bg, --text ...) — the layer tenants override
+   Layer 3  component-local properties, declared on the component
+
+   Contrast note: --brand-ink and --accent-ink are NOT authored here. theme.js
+   computes them from the tenant's own brand colour at runtime so that button
+   text stays legible whichever colour an agency picks. See theme.js:onColor().
+   ========================================================================== */
+
+:root {
+  /* ---- Layer 1: house palette -------------------------------------------
+     Pullman spruce and semaphore amber. Deliberately not the navy-and-red of
+     the carrier's own site: we are the retailer, not the operator, and the
+     two must never be confused at a glance. */
+  --rh-pine-900: #08221D;
+  --rh-pine-800: #0C332C;
+  --rh-pine-700: #14544A;
+  --rh-pine-600: #1C7A6B;
+  --rh-pine-500: #2D9B88;
+  --rh-pine-100: #DCEBE6;
+  --rh-pine-050: #EFF6F3;
+
+  --rh-signal-700: #A34A0C;
+  --rh-signal-600: #C25C12;
+  --rh-signal-500: #E4761B;
+  --rh-signal-100: #FBE7D3;
+
+  --rh-ink-900: #101A18;
+  --rh-ink-700: #2B3A36;
+  --rh-ink-500: #4F615C;
+  --rh-ink-400: #5C6E68;
+  --rh-ink-300: #98A8A2;
+  --rh-ink-200: #C9D2CE;
+  --rh-ink-100: #E3E8E5;
+  --rh-ink-050: #F1F3F1;
+
+  --rh-white: #FFFFFF;
+  --rh-board: #14181A;      /* departure-board carrier */
+  --rh-board-flap: #23292B;
+  --rh-board-text: #F4D58A; /* board amber, on dark only */
+
+  --rh-red-600: #B32219;
+  --rh-red-100: #FBE3E1;
+  --rh-green-700: #176B3F;
+  --rh-green-100: #DFF2E6;
+  --rh-blue-700: #1B4D7A;
+  --rh-blue-100: #DEEAF5;
+
+  /* ---- Layer 2: semantic (tenant-overridable) --------------------------- */
+  --brand: var(--rh-pine-700);
+  --brand-hover: var(--rh-pine-600);
+  --brand-active: var(--rh-pine-800);
+  --brand-soft: var(--rh-pine-050);
+  --brand-soft-line: var(--rh-pine-100);
+  --brand-ink: #FFFFFF;             /* recomputed by theme.js */
+
+  --accent: var(--rh-signal-500);
+  --accent-strong: var(--rh-signal-700);
+  --accent-soft: var(--rh-signal-100);
+  --accent-ink: #FFFFFF;            /* recomputed by theme.js */
+
+  --bg: var(--rh-ink-050);
+  --surface: var(--rh-white);
+  --surface-sunk: #FAFBFA;
+  --surface-invert: var(--rh-pine-900);
+
+  --text: var(--rh-ink-900);
+  --text-soft: var(--rh-ink-500);
+  --text-mute: var(--rh-ink-400);
+  --text-invert: #FFFFFF;
+  --text-on-brand-soft: var(--rh-pine-800);
+
+  --rule: var(--rh-ink-200);
+  --rule-soft: var(--rh-ink-100);
+  --rule-strong: var(--rh-ink-300);
+
+  --ok: var(--rh-green-700);
+  --ok-soft: var(--rh-green-100);
+  --warn: var(--rh-signal-700);
+  --warn-soft: var(--rh-signal-100);
+  --err: var(--rh-red-600);
+  --err-soft: var(--rh-red-100);
+  --info: var(--rh-blue-700);
+  --info-soft: var(--rh-blue-100);
+
+  --focus: var(--rh-signal-500);
+
+  /* ---- Typography -------------------------------------------------------
+     Three faces, three jobs, no overlap:
+       display  station signage and page headings (Archivo, width axis used)
+       body     interface prose and controls (Public Sans)
+       mono     anything a passenger would read off a board or a ticket —
+                times, station codes, train numbers, PNRs, prices (Plex Mono) */
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Fluid type scale, 1.200 minor third at small widths opening to 1.250 */
+  --step--2: clamp(0.694rem, 0.68rem + 0.07vw, 0.735rem);
+  --step--1: clamp(0.833rem, 0.81rem + 0.12vw, 0.919rem);
+  --step-0:  clamp(1rem, 0.97rem + 0.16vw, 1.125rem);
+  --step-1:  clamp(1.2rem, 1.15rem + 0.26vw, 1.406rem);
+  --step-2:  clamp(1.44rem, 1.36rem + 0.41vw, 1.758rem);
+  --step-3:  clamp(1.728rem, 1.6rem + 0.63vw, 2.197rem);
+  --step-4:  clamp(2.074rem, 1.88rem + 0.95vw, 2.747rem);
+  --step-5:  clamp(2.488rem, 2.2rem + 1.4vw, 3.433rem);
+  --step-6:  clamp(2.986rem, 2.57rem + 2.05vw, 4.292rem);
+
+  --lh-tight: 1.06;
+  --lh-snug: 1.22;
+  --lh-body: 1.6;
+
+  /* ---- Space (4px base) -------------------------------------------------- */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;   --sp-3: 0.75rem;  --sp-4: 1rem;
+  --sp-5: 1.25rem;  --sp-6: 1.5rem;   --sp-7: 2rem;     --sp-8: 2.5rem;
+  --sp-9: 3rem;     --sp-10: 4rem;    --sp-11: 5rem;    --sp-12: 6.5rem;
+
+  /* ---- Shape and depth ---------------------------------------------------
+     Small radii read as ticket stock and card stock. Tenants may raise
+     --radius to soften the whole product in one move. */
+  --radius: 5px;
+  --radius-sm: 3px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+
+  --shadow-1: 0 1px 2px rgba(16, 26, 24, 0.06), 0 1px 1px rgba(16, 26, 24, 0.04);
+  --shadow-2: 0 2px 4px rgba(16, 26, 24, 0.05), 0 8px 20px -8px rgba(16, 26, 24, 0.14);
+  --shadow-3: 0 4px 8px rgba(16, 26, 24, 0.06), 0 20px 44px -16px rgba(16, 26, 24, 0.22);
+
+  --container: 1180px;
+  --container-wide: 1400px;
+  --container-text: 68ch;
+
+  --header-h: 64px;
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 420ms;
+}
+
+/* ==========================================================================
+   Dark scheme
+   Applied when the visitor asks for it, or when a tenant pins one. The house
+   palette shifts; tenant brand colours are re-derived by theme.js so a light
+   agency brand does not become unreadable on a dark carrier.
+   ========================================================================== */
+:root[data-scheme="dark"] {
+  --bg: #0B1211;
+  --surface: #131C1A;
+  --surface-sunk: #0E1615;
+  --surface-invert: #F1F3F1;
+
+  --text: #EAEFEC;
+  --text-soft: #A9B8B3;
+  --text-mute: #869791;
+  --text-invert: #101A18;
+  --text-on-brand-soft: #CDE7DF;
+
+  --rule: #2A3835;
+  --rule-soft: #1E2A28;
+  --rule-strong: #3D4E4A;
+
+  --brand: var(--rh-pine-500);
+  --brand-hover: #45B5A0;
+  --brand-active: var(--rh-pine-600);
+  --brand-soft: #14302B;
+  --brand-soft-line: #1F4A42;
+
+  --accent: #F08A33;
+  --accent-strong: #F5A65F;
+  --accent-soft: #3A2410;
+
+  --ok: #4FBF83;   --ok-soft: #12301F;
+  --warn: #F0A03A; --warn-soft: #33230D;
+  --err: #F27168;  --err-soft: #3A1815;
+  --info: #6FAEE0; --info-soft: #12283A;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.35), 0 8px 20px -8px rgba(0, 0, 0, 0.6);
+  --shadow-3: 0 4px 8px rgba(0, 0, 0, 0.4), 0 20px 44px -16px rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-scheme="light"]) {
+    --bg: #0B1211;
+    --surface: #131C1A;
+    --surface-sunk: #0E1615;
+    --surface-invert: #F1F3F1;
+    --text: #EAEFEC;
+    --text-soft: #A9B8B3;
+    --text-mute: #869791;
+    --text-invert: #101A18;
+    --text-on-brand-soft: #CDE7DF;
+    --rule: #2A3835;
+    --rule-soft: #1E2A28;
+    --rule-strong: #3D4E4A;
+    --brand: var(--rh-pine-500);
+    --brand-hover: #45B5A0;
+    --brand-active: var(--rh-pine-600);
+    --brand-soft: #14302B;
+    --brand-soft-line: #1F4A42;
+    --accent: #F08A33;
+    --accent-strong: #F5A65F;
+    --accent-soft: #3A2410;
+    --ok: #4FBF83;   --ok-soft: #12301F;
+    --warn: #F0A03A; --warn-soft: #33230D;
+    --err: #F27168;  --err-soft: #3A1815;
+    --info: #6FAEE0; --info-soft: #12283A;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.35), 0 8px 20px -8px rgba(0, 0, 0, 0.6);
+    --shadow-3: 0 4px 8px rgba(0, 0, 0, 0.4), 0 20px 44px -16px rgba(0, 0, 0, 0.7);
+  }
+}

@@ -1,0 +1,7 @@
+# The GTFS archive is 18 MB and is re-fetched by tools/fetch_gtfs.sh.
+research/GTFS.zip
+research/gtfs/
+research/qr_out.json
+__pycache__/
+*.pyc
+.DS_Store

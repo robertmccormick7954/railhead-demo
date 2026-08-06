@@ -1,0 +1,31 @@
+<!--railhead
+{"title":"My trips — Railhead","description":"Find a booking, view your tickets, or cancel a trip.","script":"manage","nav":"manage"}
+-->
+<section class="band band-tight" aria-labelledby="manage-title">
+  <div class="wrap">
+    <h1 id="manage-title" style="font-size:var(--step-3)">My trips</h1>
+    <div class="grid grid-sidebar mt-6">
+      <div id="bookings" aria-live="polite"></div>
+      <aside class="card" aria-labelledby="find-title">
+        <h2 id="find-title" style="font-size:var(--step-0)">Find a booking</h2>
+        <form id="find-form" class="mt-4" novalidate>
+          <div class="field">
+            <label class="label" for="pnr">Reservation number</label>
+            <input class="input mono" id="pnr" name="pnr" maxlength="6" autocomplete="off"
+                   style="text-transform:uppercase;letter-spacing:.18em">
+          </div>
+          <div class="field">
+            <label class="label" for="lastname">Last name</label>
+            <input class="input" id="lastname" name="lastname" autocomplete="family-name">
+          </div>
+          <button class="btn btn-block mt-4" type="submit">Find booking</button>
+          <p class="field-error mt-4" id="find-error" role="alert"></p>
+        </form>
+        <p class="field-help mt-6">
+          A retailer can service only the bookings it issued. A reservation made directly with the
+          carrier is managed there.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+<!--railhead
+{"title":"Travellers — Railhead","description":"Passenger details, station assistance and extras for your booking.","script":"book","nav":"book"}
+-->
+<section class="band band-tight" aria-labelledby="book-title">
+  <div class="wrap">
+    <ol class="stepper" id="stepper" aria-label="Booking progress"></ol>
+    <div class="grid grid-sidebar">
+      <div>
+        <h1 id="book-title" style="font-size:var(--step-3)">Who is travelling</h1>
+        <p class="text-soft mt-2">Names must match the photo identification each traveller will carry.</p>
+
+        <form id="book-form" novalidate>
+          <div id="passengers" class="mt-6"></div>
+
+          <fieldset class="fieldset card mt-6" id="assistance-block">
+            <legend class="legend">Station assistance</legend>
+            <p class="text-soft" style="font-size:var(--step--1)">
+              Tell us here and it travels with the reservation. You do not need to telephone anyone,
+              and there is no limit on how many people in your party can request it.
+            </p>
+            <div id="assistance-fields" class="mt-4"></div>
+          </fieldset>
+
+          <fieldset class="fieldset card mt-6">
+            <legend class="legend">Extras</legend>
+            <div class="grid grid-3" id="extras"></div>
+            <p class="field-help">Carrier rules decide what can travel on each service. Anything unavailable on your train is refused at this step, not after payment.</p>
+          </fieldset>
+
+          <fieldset class="fieldset card mt-6">
+            <legend class="legend">Contact details</legend>
+            <p class="text-soft" style="font-size:var(--step--1)">
+              We send the ticket here. You do not need an account.
+            </p>
+            <div class="grid grid-2 mt-4" id="contact"></div>
+          </fieldset>
+
+          <div class="row row-wrap mt-8" style="gap:var(--sp-4)">
+            <button class="btn btn-lg" type="submit">Continue to payment</button>
+            <a class="btn btn-secondary btn-lg" href="search.html" id="back-link">Change trains</a>
+          </div>
+          <p class="field-error mt-4" id="form-error" role="alert"></p>
+        </form>
+      </div>
+      <aside class="card" id="summary" aria-label="Trip summary"></aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,191 @@
+{
+  "_comment": "Tenant configuration. Each object is one agency's entire storefront: brand, locale, money, pricing policy, payment methods, support and legal identity. Adding an agency to this platform means adding an entry here — no code changes, no separate deployment. The agency console at /agency/branding.html edits this structure live and exports it as JSON.",
+  "default": "railhead",
+  "tenants": [
+    {
+      "id": "railhead",
+      "name": "Railhead Travel",
+      "legalName": "Railhead Travel Ltd",
+      "tagline": "Rail travel across America, booked in one place.",
+      "brand": {
+        "primary": "#14544A",
+        "primaryHover": "#1C7A6B",
+        "primaryActive": "#0C332C",
+        "primarySoft": "#EFF6F3",
+        "primarySoftLine": "#DCEBE6",
+        "accent": "#E4761B",
+        "accentStrong": "#A34A0C",
+        "accentSoft": "#FBE7D3",
+        "canvas": "#F1F3F1",
+        "surface": "#FFFFFF",
+        "ink": "#101A18",
+        "radius": "5px",
+        "radiusLarge": "10px",
+        "fontDisplay": "Archivo",
+        "fontBody": "Public Sans",
+        "displayWidth": "112%",
+        "glyph": "rail",
+        "wordmark": "Railhead",
+        "wordmarkSuffix": "Travel"
+      },
+      "locale": {
+        "lang": "en",
+        "bcp47": "en-US",
+        "hour12": true,
+        "dateOrder": "mdy",
+        "firstDayOfWeek": 0,
+        "distanceUnit": "mi"
+      },
+      "money": {
+        "currency": "USD",
+        "rateFromUsd": 1,
+        "rateAsOf": null,
+        "showBaseCurrency": false
+      },
+      "policy": {
+        "markupPct": 10,
+        "markupFixed": 0,
+        "markupMin": 0,
+        "markupMax": null,
+        "routeMarkupPct": {},
+        "serviceChargeLabel": "Agency service charge"
+      },
+      "payments": ["visa", "mastercard", "amex", "discover", "applepay", "googlepay", "paypal"],
+      "support": {
+        "phone": "+1 555-0142",
+        "phoneLabel": "+1 555-0142",
+        "email": "help@railhead.example",
+        "hours": "Every day, 07:00 to 22:00 Eastern",
+        "address": "1 Depot Square, Suite 400, Philadelphia PA 19104"
+      },
+      "legal": {
+        "registration": "Seller of Travel registration would be stated here for the states that require one.",
+        "note": "Railhead Travel is an independent retailer of rail travel. It is not a rail carrier and is not affiliated with, endorsed by, or an agent of Amtrak or any other operator named on this site."
+      }
+    },
+
+    {
+      "id": "bluebird",
+      "name": "Bluebird Travel Co.",
+      "legalName": "Bluebird Travel Company, Inc.",
+      "tagline": "Family trips by train, planned properly.",
+      "brand": {
+        "primary": "#1D4E89",
+        "primaryHover": "#2A6BB5",
+        "primaryActive": "#143761",
+        "primarySoft": "#EDF3FA",
+        "primarySoftLine": "#D3E2F2",
+        "accent": "#C9860D",
+        "accentStrong": "#8A5A06",
+        "accentSoft": "#FAF0D9",
+        "canvas": "#F6F4EF",
+        "surface": "#FFFFFF",
+        "ink": "#17202B",
+        "radius": "12px",
+        "radiusLarge": "20px",
+        "fontDisplay": "Archivo",
+        "fontBody": "Public Sans",
+        "displayWidth": "88%",
+        "glyph": "bird",
+        "wordmark": "Bluebird",
+        "wordmarkSuffix": "Travel Co."
+      },
+      "locale": {
+        "lang": "en",
+        "bcp47": "en-US",
+        "hour12": true,
+        "dateOrder": "mdy",
+        "firstDayOfWeek": 0,
+        "distanceUnit": "mi"
+      },
+      "money": {
+        "currency": "USD",
+        "rateFromUsd": 1,
+        "rateAsOf": null,
+        "showBaseCurrency": false
+      },
+      "policy": {
+        "markupPct": 12,
+        "markupFixed": 0,
+        "markupMin": 4,
+        "markupMax": null,
+        "routeMarkupPct": { "long": 9, "autotrain": 9 },
+        "serviceChargeLabel": "Booking service fee"
+      },
+      "payments": ["visa", "mastercard", "amex", "discover", "applepay", "paypal", "affirm"],
+      "support": {
+        "phone": "+1 555-0178",
+        "phoneLabel": "+1 555-0178",
+        "email": "trips@bluebirdtravel.example",
+        "hours": "Monday to Saturday, 08:00 to 20:00 Central",
+        "address": "22 Prairie Avenue, Oak Park IL 60302"
+      },
+      "legal": {
+        "registration": "Seller of Travel registration would be stated here for the states that require one.",
+        "note": "Bluebird Travel Co. is an independent retailer of rail travel. It is not a rail carrier and is not affiliated with, endorsed by, or an agent of Amtrak or any other operator named on this site."
+      }
+    },
+
+    {
+      "id": "voyager",
+      "name": "Voyager Reizen",
+      "legalName": "Voyager Reizen B.V.",
+      "tagline": "American rail journeys, sold in euros.",
+      "brand": {
+        "primary": "#3A2E5F",
+        "primaryHover": "#4E3F7D",
+        "primaryActive": "#281F44",
+        "primarySoft": "#F0EDF7",
+        "primarySoftLine": "#DCD5EC",
+        "accent": "#0F8A78",
+        "accentStrong": "#0A5F52",
+        "accentSoft": "#DCF2EE",
+        "canvas": "#F4F4F6",
+        "surface": "#FFFFFF",
+        "ink": "#141323",
+        "radius": "2px",
+        "radiusLarge": "3px",
+        "fontDisplay": "Public Sans",
+        "fontBody": "Public Sans",
+        "displayWidth": "100%",
+        "glyph": "compass",
+        "wordmark": "Voyager",
+        "wordmarkSuffix": "Reizen"
+      },
+      "locale": {
+        "lang": "en",
+        "bcp47": "en-NL",
+        "hour12": false,
+        "dateOrder": "dmy",
+        "firstDayOfWeek": 1,
+        "distanceUnit": "km"
+      },
+      "money": {
+        "currency": "EUR",
+        "rateFromUsd": 0.92,
+        "rateAsOf": "2026-08-06",
+        "showBaseCurrency": true
+      },
+      "policy": {
+        "markupPct": 8,
+        "markupFixed": 4,
+        "markupMin": 6,
+        "markupMax": 180,
+        "routeMarkupPct": {},
+        "serviceChargeLabel": "Agency service charge"
+      },
+      "payments": ["ideal", "sepa", "bancontact", "visa", "mastercard", "paypal", "klarna"],
+      "support": {
+        "phone": "+31 20 555 0133",
+        "phoneLabel": "+31 20 555 0133",
+        "email": "hallo@voyagerreizen.example",
+        "hours": "Monday to Friday, 09:00 to 18:00 CET",
+        "address": "Stationsplein 12, 1012 AB Amsterdam, Netherlands"
+      },
+      "legal": {
+        "registration": "Chamber of Commerce and travel-guarantee-fund registration would be stated here.",
+        "note": "Voyager Reizen B.V. is an independent retailer of rail travel. It is not a rail carrier and is not affiliated with, endorsed by, or an agent of Amtrak or any other operator named on this site."
+      }
+    }
+  ]
+}

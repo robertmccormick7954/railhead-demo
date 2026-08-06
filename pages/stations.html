@@ -1,0 +1,17 @@
+<!--railhead
+{"title":"Stations — Railhead","description":"Search every station in the published timetable and see which services call there.","script":"directory","nav":"stations"}
+-->
+<section class="band band-tight" aria-labelledby="st-title">
+  <div class="wrap">
+    <span class="eyebrow">Network</span>
+    <h1 id="st-title" style="font-size:var(--step-3)">Stations</h1>
+    <p class="lede mt-2" id="st-sub"></p>
+    <div class="card mt-6">
+      <div class="field" style="margin:0">
+        <label class="label" for="st-search">Find a station</label>
+        <input class="input" id="st-search" type="search" placeholder="City, station name, state or three-letter code" autocomplete="off">
+      </div>
+    </div>
+    <div id="st-list" class="mt-6" aria-live="polite"></div>
+  </div>
+</section>

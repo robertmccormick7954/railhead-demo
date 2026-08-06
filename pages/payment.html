@@ -1,0 +1,47 @@
+<!--railhead
+{"title":"Payment — Railhead","description":"Review your trip and complete your booking.","script":"payment","nav":"book"}
+-->
+<section class="band band-tight" aria-labelledby="pay-title">
+  <div class="wrap">
+    <ol class="stepper" id="stepper" aria-label="Booking progress"></ol>
+    <div class="grid grid-sidebar">
+      <div>
+        <h1 id="pay-title" style="font-size:var(--step-3)">Review and pay</h1>
+
+        <section class="card mt-6" aria-labelledby="review-title">
+          <h2 id="review-title" style="font-size:var(--step-0)">Your trip</h2>
+          <div id="review" class="mt-4"></div>
+        </section>
+
+        <form id="pay-form" novalidate>
+          <fieldset class="fieldset card mt-6">
+            <legend class="legend">How you would like to pay</legend>
+            <div class="grid grid-2" id="methods"></div>
+            <div id="card-fields" class="mt-6"></div>
+          </fieldset>
+
+          <fieldset class="fieldset card mt-6">
+            <legend class="legend">Promotional code</legend>
+            <div class="row row-wrap" style="gap:var(--sp-3);align-items:flex-end">
+              <div class="field" style="flex:1 1 220px">
+                <label class="label" for="promo">Code <span class="label-hint">optional</span></label>
+                <input class="input" id="promo" name="promo" autocomplete="off">
+              </div>
+              <button class="btn btn-secondary" type="button" id="apply-promo">Apply code</button>
+            </div>
+            <p class="field-help" id="promo-note"></p>
+          </fieldset>
+
+          <div class="note note-warn mt-6" id="demo-notice"></div>
+
+          <div class="row row-wrap mt-6" style="gap:var(--sp-4)">
+            <button class="btn btn-lg" type="submit" id="place">Complete booking</button>
+            <a class="btn btn-secondary btn-lg" href="book.html">Back to travellers</a>
+          </div>
+          <p class="field-error mt-4" id="pay-error" role="alert"></p>
+        </form>
+      </div>
+      <aside class="card" id="breakdown" aria-label="Price breakdown"></aside>
+    </div>
+  </div>
+</section>

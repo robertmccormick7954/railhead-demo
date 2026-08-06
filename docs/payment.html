@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payment — Railhead</title>
+<meta name="description" content="Review your trip and complete your booking.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/payment.html">
+<meta property="og:title" content="Payment — Railhead">
+<meta property="og:description" content="Review your trip and complete your booking.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="book" data-depth="0" data-page="payment">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band band-tight" aria-labelledby="pay-title">
+  <div class="wrap">
+    <ol class="stepper" id="stepper" aria-label="Booking progress"></ol>
+    <div class="grid grid-sidebar">
+      <div>
+        <h1 id="pay-title" style="font-size:var(--step-3)">Review and pay</h1>
+
+        <section class="card mt-6" aria-labelledby="review-title">
+          <h2 id="review-title" style="font-size:var(--step-0)">Your trip</h2>
+          <div id="review" class="mt-4"></div>
+        </section>
+
+        <form id="pay-form" novalidate>
+          <fieldset class="fieldset card mt-6">
+            <legend class="legend">How you would like to pay</legend>
+            <div class="grid grid-2" id="methods"></div>
+            <div id="card-fields" class="mt-6"></div>
+          </fieldset>
+
+          <fieldset class="fieldset card mt-6">
+            <legend class="legend">Promotional code</legend>
+            <div class="row row-wrap" style="gap:var(--sp-3);align-items:flex-end">
+              <div class="field" style="flex:1 1 220px">
+                <label class="label" for="promo">Code <span class="label-hint">optional</span></label>
+                <input class="input" id="promo" name="promo" autocomplete="off">
+              </div>
+              <button class="btn btn-secondary" type="button" id="apply-promo">Apply code</button>
+            </div>
+            <p class="field-help" id="promo-note"></p>
+          </fieldset>
+
+          <div class="note note-warn mt-6" id="demo-notice"></div>
+
+          <div class="row row-wrap mt-6" style="gap:var(--sp-4)">
+            <button class="btn btn-lg" type="submit" id="place">Complete booking</button>
+            <a class="btn btn-secondary btn-lg" href="book.html">Back to travellers</a>
+          </div>
+          <p class="field-error mt-4" id="pay-error" role="alert"></p>
+        </form>
+      </div>
+      <aside class="card" id="breakdown" aria-label="Price breakdown"></aside>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/payment.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My trips — Railhead</title>
+<meta name="description" content="Find a booking, view your tickets, or cancel a trip.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/manage.html">
+<meta property="og:title" content="My trips — Railhead">
+<meta property="og:description" content="Find a booking, view your tickets, or cancel a trip.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="manage" data-depth="0" data-page="manage">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band band-tight" aria-labelledby="manage-title">
+  <div class="wrap">
+    <h1 id="manage-title" style="font-size:var(--step-3)">My trips</h1>
+    <div class="grid grid-sidebar mt-6">
+      <div id="bookings" aria-live="polite"></div>
+      <aside class="card" aria-labelledby="find-title">
+        <h2 id="find-title" style="font-size:var(--step-0)">Find a booking</h2>
+        <form id="find-form" class="mt-4" novalidate>
+          <div class="field">
+            <label class="label" for="pnr">Reservation number</label>
+            <input class="input mono" id="pnr" name="pnr" maxlength="6" autocomplete="off"
+                   style="text-transform:uppercase;letter-spacing:.18em">
+          </div>
+          <div class="field">
+            <label class="label" for="lastname">Last name</label>
+            <input class="input" id="lastname" name="lastname" autocomplete="family-name">
+          </div>
+          <button class="btn btn-block mt-4" type="submit">Find booking</button>
+          <p class="field-error mt-4" id="find-error" role="alert"></p>
+        </form>
+        <p class="field-help mt-6">
+          A retailer can service only the bookings it issued. A reservation made directly with the
+          carrier is managed there.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/manage.js"></script>
+</body>
+</html>

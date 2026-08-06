@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Railhead</title>
+<meta name="description" content="How the Railhead demo keeps everything in your own browser, what a live deployment would add, and what a tenant&#x27;s own notice must state.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/privacy.html">
+<meta property="og:title" content="Privacy — Railhead">
+<meta property="og:description" content="How the Railhead demo keeps everything in your own browser, what a live deployment would add, and what a tenant&#x27;s own notice must state.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="help" data-depth="0" data-page="privacy">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band" aria-labelledby="pv-intro">
+  <div class="wrap wrap-narrow stack">
+    <p class="eyebrow">Privacy</p>
+    <h1 class="sign" id="pv-intro">What this demonstration stores, and where</h1>
+    <p class="lede">
+      This storefront is a demonstration. It runs as static files with no application server behind
+      it: no account, no sign-in, no database of ours. The schedules are real, drawn from Amtrak's
+      published GTFS feed, and everything transactional is simulated. Whatever you do here stays on
+      the device you are reading this on.
+    </p>
+  </div>
+</section>
+
+<section class="band band-surface" aria-labelledby="pv-store">
+  <div class="wrap wrap-narrow stack">
+    <h2 id="pv-store">What is kept in your browser</h2>
+    <div class="prose">
+      <p>
+        The demo writes six items into your browser's own storage. Five persist until you remove
+        them; one is discarded by the browser when you close the tab. Nothing else is written, and
+        none of it is transmitted.
+      </p>
+    </div>
+
+    <div class="table-scroll">
+      <table class="table">
+        <caption>Browser storage written by this build</caption>
+        <thead>
+          <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Store</th>
+            <th scope="col">What it holds, and why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="mono">railhead.tenant</th>
+            <td>localStorage</td>
+            <td>Which of the demo storefronts you last chose, so the site opens on the same one instead of resetting.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="mono">railhead.scheme</th>
+            <td>localStorage</td>
+            <td>Whether you asked for the light or dark appearance, or left it to follow your system setting.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="mono">railhead.brandcache</th>
+            <td>localStorage</td>
+            <td>The chosen storefront's colours, so a page can paint them immediately on the next visit rather than flashing one brand and then repainting in another.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="mono">railhead.bookings</th>
+            <td>localStorage</td>
+            <td>The simulated bookings you have made here, so that managing a booking has something to show.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="mono">railhead.override.&lt;storefront&gt;</th>
+            <td>localStorage</td>
+            <td>Any change you made in the agency console — colours, markup, payment methods, support details. It is written once per storefront you edit, and removing it restores that storefront to its supplied configuration.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="mono">railhead.basket</th>
+            <td>sessionStorage</td>
+            <td>The search and the selection you are part-way through, so a reload does not lose them. The browser drops it when the tab closes.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <p>
+        No identifier is generated for you, and nothing is derived about your device beyond the two
+        preferences above. If you type a passenger name into the booking flow, it is written into
+        <span class="mono">railhead.bookings</span> on your machine and goes nowhere else. Because
+        this is a demonstration and no ticket can be issued from it, there is no reason to enter real
+        personal details, and we would rather you did not.
+      </p>
+    </div>
+
+    <div class="note note-info">
+      <p>
+        You can read all of it yourself. Open your browser's developer tools, go to the storage or
+        application panel, and look under this site's origin. What is listed there is the whole of it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="pv-clear">
+  <div class="wrap wrap-narrow stack">
+    <h2 id="pv-clear">Removing it</h2>
+    <div class="prose">
+      <p>
+        Clearing this site's data deletes all five keys. In most browsers the route is settings,
+        then the privacy or history section, then clearing browsing data with "cookies and other
+        site data" selected; every current browser also lets you clear data for a single site from
+        the padlock or site-information button in the address bar. In developer tools, the storage
+        panel has a delete control per key and a clear-all for the origin.
+      </p>
+      <p>
+        Afterwards the demo forgets which storefront you picked, returns to following your system's
+        light or dark setting, and shows no saved bookings. Nothing is recoverable, because no copy
+        exists anywhere else. Browsing in a private or incognito window has the same effect on
+        closing: the storage is created and then discarded with the session.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-sunk" aria-labelledby="pv-requests">
+  <div class="wrap wrap-narrow stack">
+    <h2 id="pv-requests">What this page loads, and from whom</h2>
+    <div class="prose">
+      <p>
+        Every request a page here makes is to this same site: the HTML, one stylesheet set, the
+        JavaScript modules, and four data files holding the storefront configurations, the station
+        list, the network and the feed metadata. There is no analytics, no tag manager, no pixel, no
+        session recorder, no A/B tool, no chat widget, no advertising script, no embedded map or
+        video, and no social button. There is no third party at all, so there is nothing to consent
+        to and no consent banner.
+      </p>
+      <p>
+        The build sets no cookies. The browser storage described above exists only to do the thing
+        you asked for by using the page, and it is readable and removable by you at any time.
+      </p>
+      <h3>Fonts are served from here, not from a font host</h3>
+      <p>
+        The three typefaces are hosted on this origin as WOFF2 files rather than requested from a
+        font service. A font hosted elsewhere would mean a request to that company from every
+        visitor's browser on every page, disclosing the visitor's IP address, user agent and the
+        page they were on, before anyone had asked them anything. Railhead is white-labelled, so
+        that disclosure would be made on behalf of an agency, out of its own customers' browsers,
+        about people who had never heard of the font host. Self-hosting removes the request instead
+        of explaining it.
+      </p>
+      <h3>The one thing that is not in our hands</h3>
+      <p>
+        Whichever web server or content delivery network serves these files will keep its own access
+        logs, as web servers do: address, timestamp, path requested, user agent. That belongs to the
+        host, not to this build, and nothing in the demo adds to those logs or reads them.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-rule" aria-labelledby="pv-prod">
+  <div class="wrap stack-6">
+    <div class="stack-2">
+      <p class="eyebrow">Not in this build</p>
+      <h2 id="pv-prod">What a production deployment would add</h2>
+      <p class="lede">
+        Selling real tickets changes the picture completely. The four things below are unavoidable in
+        a live deployment, and each of them puts personal data somewhere other than the traveller's
+        own browser. None of them exists here.
+      </p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="card-body">
+          <h3>A payment processor</h3>
+          <p>
+            Card details would be collected by the processor's own fields and would go to the
+            processor, which acts as an independent controller for its part of the work under its own
+            privacy notice, not as a supplier hidden behind the retailer's. A retailer that lets card
+            numbers touch its own systems takes on the full weight of PCI DSS, which is the reason
+            almost nobody does.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>The carrier</h3>
+          <p>
+            A ticket only exists once the carrier's reservation system has it. Issuing one means
+            passing the passenger's name and the details of the journey to the carrier, which then
+            holds them for carriage, changes, refunds and its own legal obligations. Nothing beyond
+            what the ticket needs has to travel with it.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>An email provider</h3>
+          <p>
+            Confirmations, itinerary changes and receipts leave through a mail provider, which
+            necessarily handles the recipient's address and the contents of the message, and usually
+            keeps delivery records.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>Server-side records</h3>
+          <p>
+            Accounts, orders, payment references and support correspondence would live in a database
+            rather than in browser storage, with application logs, backups and error reports beside
+            them. Each of those needs a stated retention period, and backups need one of their own.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>
+        A tenant taking Railhead live must publish, in its own name: who the controller is and how to
+        reach it, the categories of personal data it collects and the purpose of each, the lawful
+        basis for each purpose, who receives the data including the carrier and the payment
+        processor, any transfer outside the country of collection, how long each category is kept,
+        how someone exercises their rights, and which supervisory authority takes complaints. Those
+        answers depend on the entity and where it trades, so this page cannot pre-empt them.
+      </p>
+    </div>
+
+    <div class="note note-warn">
+      <p>
+        This demonstration does none of the above. It takes no payment, sends no email, contacts no
+        carrier and keeps no server-side record, because it issues nothing.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="pv-rights">
+  <div class="wrap wrap-narrow stack">
+    <h2 id="pv-rights">Rights over data held about you</h2>
+    <div class="prose">
+      <p>
+        Where an operator holds personal data about someone, data protection law generally gives that
+        person the right to be told whether data about them is held and to obtain a copy; to have
+        inaccurate data corrected; to have data erased when it is no longer needed for the purpose it
+        was collected for; to have processing restricted while a dispute is resolved; to receive data
+        they provided in a portable form; to object to processing carried out on the basis of a
+        legitimate interest, and to direct marketing without qualification; to withdraw consent where
+        consent was the basis; and to complain to a data protection authority.
+      </p>
+      <p>
+        Which of those apply, and in what form, depends on the law covering the operator and the
+        traveller, and the responsible party is the agency running the storefront, not the platform
+        it is built on. A live tenant names itself, states its lawful basis for each purpose and
+        gives a working route for these requests. Note that requests can be limited by an operator's
+        other obligations: transaction and tax records commonly have to be kept for a fixed number of
+        years, which restricts erasure while that period runs.
+      </p>
+      <p>
+        In this demonstration there is nothing to make such a request against. No record about you is
+        held, so there is nothing to disclose, correct, port or delete on our side. The five browser
+        keys listed above are already in your possession, and clearing site data is the erasure.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-surface" aria-labelledby="pv-tenant">
+  <div class="wrap wrap-narrow stack">
+    <h2 id="pv-tenant">This page is not a notice for a live storefront</h2>
+    <div class="prose">
+      <p>
+        What is written here is accurate for the demonstration build and only for it. An agency
+        putting Railhead into service must replace this page with its own notice, naming its legal
+        entity, its registered address and its data protection contact, and describing the processing
+        it actually carries out. Leaving this text in place on a trading storefront would be untrue
+        from the moment the first payment is taken. If you have a question about this page, use
+        <a href="contact.html">the contact page</a>.
+      </p>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/generic.js"></script>
+</body>
+</html>

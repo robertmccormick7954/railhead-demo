@@ -1,0 +1,187 @@
+<!--railhead
+{"title":"Accessibility","description":"How this demonstration site was built against WCAG 2.1 Level AA, what it has not been tested for, and how assistance requests are handled at booking.","script":"generic","nav":"help"}
+-->
+<section class="band" aria-labelledby="acc-title">
+  <div class="wrap wrap-narrow stack-6">
+    <p class="eyebrow">Working standard: WCAG 2.1 Level AA</p>
+    <h1 class="sign" id="acc-title">Accessibility</h1>
+    <p class="lede">Two different things are covered here, and they are kept apart on purpose. The
+      first is whether this website can be operated by everyone who needs to use it. The second is
+      what happens to a passenger who needs assistance at a station or on board.</p>
+  </div>
+</section>
+
+<section class="band band-surface" aria-labelledby="acc-site">
+  <div class="wrap wrap-narrow stack-6">
+    <h2 id="acc-site">This website</h2>
+
+    <div class="prose">
+      <p>The target is WCAG 2.1 Level AA. It was the standard the interface was designed against
+        rather than a checklist run over it afterwards, which is why the station pickers are a
+        combobox rather than a styled list of clickable boxes, and why the departure board carries a
+        second, plain version of itself for screen readers.</p>
+    </div>
+
+    <div class="table-scroll">
+      <table class="table">
+        <caption>Accessibility work already in this build</caption>
+        <thead>
+          <tr>
+            <th scope="col">Area</th>
+            <th scope="col">What is in place</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Keyboard</th>
+            <td>Everything that can be clicked is a real link, button or form field, so the whole
+              site is operable from the keyboard alone. Nothing is driven by a click handler on a
+              plain container.</td>
+          </tr>
+          <tr>
+            <th scope="row">Focus</th>
+            <td>A three-pixel focus outline, offset from the control so it stays legible against a
+              filled button. It is drawn for keyboard focus only, so it does not flash on a mouse
+              click.</td>
+          </tr>
+          <tr>
+            <th scope="row">Skip link</th>
+            <td>The first item in the tab order on every page. It is hidden until it takes focus,
+              then moves focus past the header and the tenant strip to the main landmark.</td>
+          </tr>
+          <tr>
+            <th scope="row">Station pickers</th>
+            <td>An ARIA combobox with a listbox of matches. Typing filters on station name, city,
+              state and three-letter code, so <span class="mono">penn</span>,
+              <span class="mono">new york</span> and <span class="mono">NYP</span> all reach the same
+              station. Arrow keys move through the matches, Enter takes the highlighted one, and
+              Escape closes the list without discarding what was typed.</td>
+          </tr>
+          <tr>
+            <th scope="row">Form errors</th>
+            <td>An error is written next to the field it belongs to, the field is marked invalid,
+              and the two are tied together with <span class="mono">aria-describedby</span> so the
+              message is read out when the field takes focus. Confirmations are announced through a
+              polite live region rather than a pop-up that steals focus.</td>
+          </tr>
+          <tr>
+            <th scope="row">Contrast</th>
+            <td>Checked programmatically rather than by eye, in both colour schemes and for every
+              tenant palette. Translucent surfaces are composited against whatever sits behind them
+              before the ratio is measured, because that is the colour a reader actually sees.</td>
+          </tr>
+          <tr>
+            <th scope="row">Reduced motion</th>
+            <td>When reduced motion is requested, the departure board does not run its split-flap
+              animation and site-wide transitions are cut. Separately, and regardless of that
+              setting, the animated grid of characters is hidden from assistive technology and an
+              equivalent plain text list of the same departures is exposed instead.</td>
+          </tr>
+          <tr>
+            <th scope="row">Structure</th>
+            <td>One first-level heading per page and no skipped levels below it, landmarks with
+              accessible names, and tables with a caption and scoped header cells. Colour is never
+              the only thing carrying a meaning.</td>
+          </tr>
+          <tr>
+            <th scope="row">Print</th>
+            <td>A dedicated print stylesheet. Navigation, the departure board and the footer are
+              dropped, a ticket is kept to a single sheet, and the barcode keeps a module size that
+              survives a home printer.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>What this build has not had</h3>
+    <div class="prose">
+      <p>This is a demonstration build. It has not had an independent accessibility audit, and it
+        has not been tested by people who use assistive technology daily. The checks behind the table
+        above were run by the people who wrote the code, using automated tooling and manual keyboard
+        and screen-reader passes. That combination finds real defects and reliably misses others,
+        particularly around wording, expectations and anything that depends on how a specific
+        assistive technology behaves in practice.</p>
+      <p>Nothing here is a claim of conformance or certification. No conformance report has been
+        published for this build, and none should be inferred from the standard named at the top of
+        this page.</p>
+    </div>
+
+    <h3>Reporting a barrier</h3>
+    <div class="prose">
+      <p>If something on this site stopped you, tell us through <a href="contact.html">contact</a>.
+        The three things that make a report actionable are the address of the page, what you were
+        trying to do at the point it failed, and the browser and assistive technology you were using,
+        with versions if you have them. A barrier report is treated as a defect in the build rather
+        than a support request. Because this is a demonstration, there is no response-time
+        commitment attached to it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="acc-travel">
+  <div class="wrap wrap-narrow stack-6">
+    <h2 id="acc-travel">Travelling with a disability</h2>
+
+    <div class="prose">
+      <p>Two things about booking assisted travel through Amtrak's own channels are on the public
+        record. They are set out below because they are the requirement this platform was built to
+        meet, not as a comment on the carrier.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <div class="card-body stack-2">
+          <p class="eyebrow">Amtrak booking configuration</p>
+          <p>Amtrak's configuration tells a customer reserving for more than one traveller with a
+            disability to call the carrier by telephone, and adds that “A new experience for multiple
+            traveler bookings is in progress.”</p>
+          <p class="text-mute">Published in Amtrak's own booking-widget configuration. The telephone
+            number it gives is not reproduced on this page.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body stack-2">
+          <p class="eyebrow">Audit OIG-A-2025-009</p>
+          <p>“When we booked trips online between a station that offered assistance and one that did
+            not, we could not request assistance at either station.”</p>
+          <p class="text-mute">Amtrak Office of Inspector General, <em>Train Operations: The Company
+            Can Improve the Quality of Customer Service to Passengers with Disabilities</em>,
+            11 July 2025. The finding describes the auditors' own tests of the website and app.</p>
+        </div>
+      </article>
+    </div>
+
+    <h3>What this platform does instead</h3>
+    <div class="prose">
+      <p>More than one traveller with a disability can be booked in a single transaction. There is no
+        point in the flow where the itinerary has to be split in two, abandoned for a phone call, or
+        rebuilt from scratch because of who is travelling.</p>
+      <p>Station assistance is requested inside the booking flow, on the same step where the
+        passengers are entered, and it is requested for a named passenger at a named station rather
+        than as a note attached to the whole trip. Once made, the request is carried on the booking
+        record: it stays with the reservation, and it is shown again when the booking is retrieved or
+        the itinerary is reprinted, so nobody has to remember whether it was asked for.</p>
+      <p>An Accessible Bedroom is one of the sleeping accommodations offered on services that carry
+        them. Like the other accommodations it is priced and sold as a room rather than per person,
+        and meals on board are included.</p>
+    </div>
+
+    <h3>What we do not decide</h3>
+    <div class="prose">
+      <p>The assistance request is passed to the carrier with the booking. What is actually available
+        is governed by the carrier's own rules: whether a given station offers assistance at all,
+        which platforms and entrances can be used, what notice period applies, and what the equipment
+        on a particular train can do. This platform can carry the request accurately and make sure it
+        is not lost. It cannot create a service at a station that does not have one, and it will not
+        tell you that a station is staffed when the carrier says otherwise.</p>
+    </div>
+
+    <div class="note note-info">
+      <p><strong>This is a demonstration.</strong> The schedules are real, taken from Amtrak's
+        published GTFS feed. Everything transactional is simulated: no booking made here reaches
+        Amtrak, no assistance request is transmitted to anyone, and no ticket issued here is valid
+        for travel. To arrange assistance for a real journey, contact the carrier or the travel
+        agency that sold the ticket.</p>
+    </div>
+  </div>
+</section>

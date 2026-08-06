@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Group travel</title>
+<meta name="description" content="The carrier&#x27;s online booking stops at eight passengers. Send a group enquiry in one structured form, and see what happens after you do.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/groups.html">
+<meta property="og:title" content="Group travel">
+<meta property="og:description" content="The carrier&#x27;s online booking stops at eight passengers. Send a group enquiry in one structured form, and see what happens after you do.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="book" data-depth="0" data-page="groups">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band" aria-labelledby="groups-title">
+  <div class="wrap wrap-narrow stack-6">
+    <p class="eyebrow">Parties of nine or more</p>
+    <h1 class="sign" id="groups-title">Group travel</h1>
+    <p class="lede">Eight is the number that decides everything on this page. Amtrak's online booking
+      takes up to eight fare-paying passengers in one transaction, and the ninth traveller ends the
+      online route entirely. A coach party, a wedding, a works outing and a school trip all stop in
+      exactly the same place, and the usual answer is to put the whole thing on the telephone.</p>
+  </div>
+</section>
+
+<section class="band band-surface" aria-labelledby="groups-limits">
+  <div class="wrap wrap-narrow stack-6">
+    <h2 id="groups-limits">Where the online booking stops</h2>
+
+    <p class="text-soft">These are the carrier's published limits on its own online booking. They are
+      not ours, we cannot lift them, and no retailer can.</p>
+
+    <div class="table-scroll">
+      <table class="table">
+        <caption>Amtrak's published online booking limits and how each one lands on a group</caption>
+        <thead>
+          <tr>
+            <th scope="col">Limit</th>
+            <th scope="col">The published rule</th>
+            <th scope="col">What it means for a group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Passengers in one online transaction</th>
+            <td>Maximum 8 fare-paying passengers</td>
+            <td>Nothing about the journey changes at nine people. Only the way it has to be booked
+              does.</td>
+          </tr>
+          <tr>
+            <th scope="row">Parties of 9 to 14</th>
+            <td>Sent to a telephone line</td>
+            <td>Someone has to read out every name, date and station, and write down the answer.
+              That is the call this form replaces.</td>
+          </tr>
+          <tr>
+            <th scope="row">Parties of 15 or more</th>
+            <td>Sent to a group request form</td>
+            <td>Treated as a formal group request rather than an ordinary transaction, and
+              answered by people rather than by a results page.</td>
+          </tr>
+          <tr>
+            <th scope="row">Passenger types in one reservation</th>
+            <td>Maximum 4 different types</td>
+            <td>This storefront offers six passenger types, so any four of them fit inside one
+              reservation; a fifth does not, and the party has to be split.</td>
+          </tr>
+          <tr>
+            <th scope="row">Booking horizon</th>
+            <td>335 days ahead, or 90 days for multi-ride products</td>
+            <td>A date further out than that is not open to anyone yet, so it cannot be priced or
+              held by us or by the carrier.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <p>Two smaller limits catch groups with connections. Online booking closes 15 minutes before
+        departure, which rules out assembling a large party at the last moment. And an online
+        multi-city itinerary holds at most five segments with the carrier; this storefront searches
+        trips of up to eight legs, but the reservation behind them still has to respect the
+        carrier's structure.</p>
+      <p>The passenger-type limit is the one people meet without expecting it. Four types is enough
+        for most families and not enough for most organised parties.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="groups-process">
+  <div class="wrap wrap-narrow stack-6">
+    <h2 id="groups-process">What we do instead of the phone call</h2>
+
+    <div class="prose">
+      <p>A group enquiry is a list of facts. Written down once, in fields with names, it can be
+        read, checked, quoted and repeated without anybody hearing a station name wrongly. Spoken
+        down a line it has to be captured live by someone typing while you talk. The form on this
+        page is the same conversation, in the order we would have asked for it.</p>
+
+      <h3>What we need from you</h3>
+      <p>Six things carry almost all of the weight, and a group enquiry that arrives without them
+        turns into a second conversation before anyone can look anything up.</p>
+      <ul>
+        <li><strong>The head count, and the breakdown behind it.</strong> Twenty travellers is not
+          one fact. It is some number of adults, some children, possibly a senior or two, and each
+          of those is a passenger type that has to fit inside the carrier's limit of four per
+          reservation.</li>
+        <li><strong>Both stations, in the direction you are travelling.</strong> Station names
+          repeat across the network, so the pair settles which journey is meant.</li>
+        <li><strong>The outbound date, and whether you are coming back.</strong> A return leg is a
+          second set of space to find, not a detail added at the end.</li>
+        <li><strong>How flexible the date is.</strong> A large party rarely fits the first service
+          you looked at. A day either way is often the difference between one reservation and
+          three, and we would rather know that at the start than propose something that cannot
+          work.</li>
+        <li><strong>Accessibility requirements, in words.</strong> These are asked for early on this
+          page and there is a reason for it, set out with the form below.</li>
+        <li><strong>One contact person.</strong> Groups fall apart on this. One name, one email, one
+          telephone number, and a group name so the enquiry can be found again.</li>
+      </ul>
+      <p>We do not need a passenger list to start. Names come later, once there is something to put
+        them on.</p>
+
+      <h3>What happens after you send it</h3>
+      <p>We read the enquiry, check the timetable for services that can take the party together, and
+        put the request to the carrier. Response times belong to the agency running this storefront
+        and are published by that agency; none is promised on this page. If something in the enquiry
+        is missing or contradicts itself, we come back and ask rather than guess.</p>
+      <p>When the carrier answers, we come back with what is actually available, the conditions
+        attached to it, and what has to be paid and by when. The terms on a group booking may differ
+        from those on an ordinary one, and we set out whatever applies in writing before anything
+        is due.</p>
+
+      <h3>What we cannot promise</h3>
+      <p>Group space is confirmed by the carrier, not by us and not by this page. Sending the form
+        reserves nothing, holds nothing and prices nothing. Until the carrier confirms, everything
+        we quote is a quotation, and a quotation can be gone by the time it is accepted.</p>
+      <p>Nor can we route around the carrier. Amtrak's ticket terms state that "Amtrak tickets may
+        only be sold or issued by Amtrak or an authorized travel agent/tour operator", and that a
+        ticket bought from an unauthorised third party will be voided, with the holder eligible
+        neither for travel nor for a refund. A group is exactly the situation in which somebody
+        offers to sell twenty tickets cheaply. That is the rule to check them against.</p>
+      <p>This storefront is a demonstration. The schedules it searches are real and come from
+        Amtrak's published GTFS feed, which contains no fare data of any kind. Everything
+        transactional here is simulated: no enquiry is sent anywhere, no space is held, and no
+        ticket can be issued.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-surface" aria-labelledby="groups-schools">
+  <div class="wrap wrap-narrow stack-6">
+    <h2 id="groups-schools">School, youth and unaccompanied young travellers</h2>
+
+    <div class="prose">
+      <p>School parties meet the four-type limit immediately. Children aged 2 to 12, youth aged 13
+        to 15, adult staff and one chaperone aged 65 or over already fill it, and an infant on a lap
+        makes a fifth type. The party then cannot sit in one reservation. That is not a problem, but
+        it has to be planned rather than discovered at payment: tell us the ages you are bringing
+        and we split the party deliberately across reservations on the same service.</p>
+      <p>There is one rule that no form can work around. Passengers aged 13, 14 and 15 travelling
+        alone cannot be booked online with the carrier. For an accompanied school trip this rarely
+        matters on the outbound leg and often matters on the way home, when a pupil leaves the group
+        early or joins it late. An unaccompanied young traveller has to be arranged with a person,
+        which is a genuine reason to write to us rather than search for a fare.</p>
+      <p>If your party includes young travellers who will at any point be on a train without an
+        accompanying adult, say so in the notes. It changes what can be booked, not just what it
+        costs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-sunk band-rule" aria-labelledby="groups-form-title">
+  <div class="wrap wrap-narrow stack-6">
+    <h2 id="groups-form-title">Send a group enquiry</h2>
+
+    <div class="note note-warn" id="groups-nothing-sent">
+      <p><strong>Nothing is transmitted.</strong> This is a demonstration build. The form below is
+        here to show the fields and the markup a real deployment would use. It has no destination:
+        submitting it sends no enquiry, stores nothing and reaches nobody. To reach a real agency,
+        use the telephone number or the email address in the footer, or the
+        <a href="contact.html">contact</a> page.</p>
+    </div>
+
+    <noscript>
+      <div class="note note-err">
+        <p>This form is handled entirely in the browser and needs JavaScript, which is switched off.
+          Nothing here will work without it. Use the email address in the footer of this page
+          instead.</p>
+      </div>
+    </noscript>
+
+    <div class="card">
+      <div class="card-body">
+        <form class="stack-6" id="groups-form" onsubmit="return false"
+              aria-describedby="groups-nothing-sent">
+
+          <fieldset class="fieldset">
+            <legend class="legend">The group</legend>
+
+            <div class="field">
+              <label class="label" for="groups-name">Group or organisation name
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="text" id="groups-name" name="groupName"
+                     autocomplete="organization" required aria-describedby="groups-name-help">
+              <p class="field-help" id="groups-name-help">Whatever you call it between yourselves is
+                fine. It is how the enquiry is found again.</p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="groups-contact">Contact person
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="text" id="groups-contact" name="contactName"
+                     autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label class="label" for="groups-email">Email address
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="email" id="groups-email" name="email"
+                     autocomplete="email" required aria-describedby="groups-email-help">
+              <p class="field-help" id="groups-email-help">Written answers, quotations and
+                confirmations go to this address.</p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="groups-phone">Telephone
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="tel" id="groups-phone" name="phone"
+                     autocomplete="tel" required aria-describedby="groups-phone-help"
+                     style="max-width:20rem">
+              <p class="field-help" id="groups-phone-help">Group space often has to be settled
+                inside a working day. A number we can ring saves losing it.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="legend">Who is travelling</legend>
+
+            <div class="field">
+              <label class="label" for="groups-total">Number of travellers
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="number" id="groups-total" name="travellers"
+                     min="9" step="1" inputmode="numeric" required
+                     aria-describedby="groups-total-help" style="max-width:9rem">
+              <p class="field-help" id="groups-total-help">Everyone travelling, including infants
+                who will sit on an adult's lap.</p>
+            </div>
+
+            <div class="field">
+              <p class="label" id="groups-breakdown-label">Breakdown by passenger type</p>
+              <div class="grid grid-3" role="group" aria-labelledby="groups-breakdown-label"
+                   aria-describedby="groups-breakdown-help">
+                <div>
+                  <label class="label" for="groups-infants">Infants, under 2</label>
+                  <input class="input" type="number" id="groups-infants" name="paxInfant"
+                         min="0" step="1" value="0" inputmode="numeric" style="max-width:9rem">
+                </div>
+                <div>
+                  <label class="label" for="groups-children">Children, 2 to 12</label>
+                  <input class="input" type="number" id="groups-children" name="paxChild"
+                         min="0" step="1" value="0" inputmode="numeric" style="max-width:9rem">
+                </div>
+                <div>
+                  <label class="label" for="groups-youth">Youth, 13 to 15</label>
+                  <input class="input" type="number" id="groups-youth" name="paxYouth"
+                         min="0" step="1" value="0" inputmode="numeric" style="max-width:9rem">
+                </div>
+                <div>
+                  <label class="label" for="groups-adults">Adults, 16 and over</label>
+                  <input class="input" type="number" id="groups-adults" name="paxAdult"
+                         min="0" step="1" value="0" inputmode="numeric" style="max-width:9rem">
+                </div>
+                <div>
+                  <label class="label" for="groups-seniors">Seniors, 65 and over</label>
+                  <input class="input" type="number" id="groups-seniors" name="paxSenior"
+                         min="0" step="1" value="0" inputmode="numeric" style="max-width:9rem">
+                </div>
+                <div>
+                  <label class="label" for="groups-military">Military</label>
+                  <input class="input" type="number" id="groups-military" name="paxMilitary"
+                         min="0" step="1" value="0" inputmode="numeric" style="max-width:9rem">
+                </div>
+              </div>
+              <p class="field-help" id="groups-breakdown-help">Count each traveller once, under the
+                type that fits them best; someone eligible as a senior should be counted as a senior
+                rather than as an adult. The six figures should add up to the total above. If more
+                than four of these boxes have a number in them, the party exceeds the carrier's
+                limit of four passenger types per reservation, and we will split it across
+                reservations on the same service.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="legend">The journey</legend>
+
+            <div class="field">
+              <label class="label" for="groups-origin">Travelling from
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="text" id="groups-origin" name="origin" required
+                     aria-describedby="groups-origin-help">
+              <p class="field-help" id="groups-origin-help">Station name or city. If two stations
+                would both work, say so.</p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="groups-destination">Travelling to
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="text" id="groups-destination" name="destination" required>
+            </div>
+
+            <div class="field">
+              <label class="label" for="groups-outbound">Outbound date
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="date" id="groups-outbound" name="outboundDate" required
+                     aria-describedby="groups-outbound-help" style="max-width:16rem">
+              <p class="field-help" id="groups-outbound-help">Send the enquiry even if the date is
+                beyond the carrier's 335-day booking horizon. It cannot be held yet, but we would
+                rather hold the enquiry than lose the date.</p>
+            </div>
+
+            <div class="field">
+              <fieldset class="fieldset">
+                <legend class="label">Do you need a return journey?
+                  <span class="label-hint">(required)</span></legend>
+                <label class="check" for="groups-return-no">
+                  <input type="radio" id="groups-return-no" name="returnNeeded" value="one-way"
+                         required>
+                  <span class="check-text">
+                    <span class="check-title">One way</span>
+                    <span class="check-note">Outbound only.</span>
+                  </span>
+                </label>
+                <label class="check" for="groups-return-yes">
+                  <input type="radio" id="groups-return-yes" name="returnNeeded" value="return">
+                  <span class="check-text">
+                    <span class="check-title">Return</span>
+                    <span class="check-note">We look for space in both directions.</span>
+                  </span>
+                </label>
+              </fieldset>
+            </div>
+
+            <div class="field">
+              <label class="label" for="groups-inbound">Return date
+                <span class="label-hint">(optional)</span></label>
+              <input class="input" type="date" id="groups-inbound" name="returnDate"
+                     aria-describedby="groups-inbound-help" style="max-width:16rem">
+              <p class="field-help" id="groups-inbound-help">Leave it empty if you are travelling
+                one way, or if the return date is not settled.</p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="groups-flex">How flexible are the dates
+                <span class="label-hint">(required)</span></label>
+              <select class="select" id="groups-flex" name="flexibility" required
+                      aria-describedby="groups-flex-help">
+                <option value="">Choose one</option>
+                <option value="fixed">Fixed. These dates only</option>
+                <option value="one-day">Within a day either way</option>
+                <option value="three-days">Within three days either way</option>
+                <option value="one-week">Within a week either way</option>
+                <option value="unsettled">Dates are not settled yet</option>
+              </select>
+              <p class="field-help" id="groups-flex-help">This is the field that most often decides
+                whether a party of twenty travels together on one service.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="legend">Accessibility requirements</legend>
+
+            <div class="note note-info" id="groups-access-why">
+              <p>This is asked here, near the top, because the carrier's own online booking handles
+                it poorly. Amtrak's booking configuration tells anyone making a reservation for more
+                than one traveller with a disability to telephone the carrier instead, and adds that
+                "A new experience for multiple traveler bookings is in progress". An Amtrak Office of
+                Inspector General audit published on 11 July 2025, <em>Train Operations: The Company
+                Can Improve the Quality of Customer Service to Passengers with Disabilities</em>
+                (OIG-A-2025-009), tested booking on the carrier's website and app and found: "When
+                we booked trips online between a station that offered assistance and one that did
+                not, we could not request assistance at either station." Written into an enquiry, a
+                requirement can be raised by name, station and date. Left to a checkbox on a results
+                page, it can be lost.</p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="groups-access">What does the group need
+                <span class="label-hint">(optional, but tell us early rather than late)</span></label>
+              <textarea class="textarea" id="groups-access" name="accessibility" rows="6"
+                        aria-describedby="groups-access-help"></textarea>
+              <p class="field-help" id="groups-access-help">Wheelchair spaces and how many, station
+                assistance at either end, a travelling companion, a service animal, seating that has
+                to be together, an accessible bedroom on an overnight service, or anything else that
+                would make the difference between a workable itinerary and one that only looks
+                workable. Accommodation and assistance are confirmed by the carrier, so the earlier
+                it is asked for, the better the chance of getting it.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="legend">Anything else</legend>
+
+            <div class="field">
+              <label class="label" for="groups-notes">Notes
+                <span class="label-hint">(optional)</span></label>
+              <textarea class="textarea" id="groups-notes" name="notes" rows="6"
+                        aria-describedby="groups-notes-help"></textarea>
+              <p class="field-help" id="groups-notes-help">What the trip is for, whether the party
+                must travel on one service or can be split, luggage or equipment beyond normal
+                baggage, any traveller aged 13 to 15 who will be on a train without an accompanying
+                adult, and anything that is fixed for a reason, such as an event start time.</p>
+            </div>
+          </fieldset>
+
+          <div class="row row-wrap">
+            <button class="btn" type="button">Send group enquiry</button>
+            <span class="text-mute">Demonstration only. Nothing leaves this page.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/generic.js"></script>
+</body>
+</html>

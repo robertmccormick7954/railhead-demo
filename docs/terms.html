@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of sale</title>
+<meta name="description" content="What we sell as a retailer, what the carrier is responsible for, and how fares, changes, refunds, complaints and liability are handled.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/terms.html">
+<meta property="og:title" content="Terms of sale">
+<meta property="og:description" content="What we sell as a retailer, what the carrier is responsible for, and how fares, changes, refunds, complaints and liability are handled.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="help" data-depth="0" data-page="terms">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band band-tight" aria-labelledby="terms-title">
+  <div class="wrap">
+    <p class="eyebrow">Legal</p>
+    <h1 id="terms-title">Terms of sale</h1>
+    <p class="lede">Buying a train journey through an agency creates two separate agreements: one with the agency for the sale, and one with the carrier for the journey. These terms cover the first, and say plainly where the second takes over.</p>
+    <div class="spacer"></div>
+    <nav aria-label="Sections of these terms">
+      <div class="card">
+        <div class="card-body">
+          <ol class="stack-2">
+            <li><a href="#s1">Who we are, and what we are not</a></li>
+            <li><a href="#s2">What the price includes</a></li>
+            <li><a href="#s3">Currency and the rate we use</a></li>
+            <li><a href="#s4">How a booking is made</a></li>
+            <li><a href="#s5">Fare conditions, changes, refunds and travel credit</a></li>
+            <li><a href="#s6">When the carrier cancels or reschedules</a></li>
+            <li><a href="#s7">Passengers, identity and discounted passenger types</a></li>
+            <li><a href="#s8">Baggage, pets and prohibited items</a></li>
+            <li><a href="#s9">Our liability, and its limits</a></li>
+            <li><a href="#s10">Complaints and how to escalate</a></li>
+            <li><a href="#s11">Governing law, versions and severability</a></li>
+            <li><a href="#s12">This is a demonstration deployment</a></li>
+          </ol>
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="band" aria-label="Terms of sale, sections 1 to 11">
+  <div class="wrap">
+    <div class="prose">
+
+      <section id="s1" aria-labelledby="s1-h">
+        <h2 id="s1-h">1. Who we are, and what we are not</h2>
+        <p>We are a travel agency. We sell rail travel. We do not operate trains, crew them, run stations or provide anything on board.</p>
+        <p>The agreement between you and us covers the sale: the search, the reservation we request on your behalf, the documents we send you, the payment we take, and the service charge we make for doing all of it. These terms govern that agreement.</p>
+        <p>The agreement between you and the carrier covers the journey. The carrier's conditions of carriage, tariff and ticket conditions govern it, including boarding, seating, delay, disruption, conduct on board and refusal of carriage. Where those conditions and these terms say different things about the journey, the carrier's conditions decide the point.</p>
+        <p>We use the name Amtrak only to identify the rail services we sell. We are not Amtrak, these are not Amtrak's terms, and nothing here is written, approved or endorsed by Amtrak.</p>
+        <p>Selling live rail inventory requires a distribution agreement: directly with the carrier, through the agent portal now operated by Distribusion Technologies, or through an aggregator such as SilverRail. That matters to you, not only to us. Amtrak's ticket Terms and Conditions state that Amtrak may refuse to carry passengers "Who present an Amtrak ticket purchased from an unauthorized third party. Amtrak tickets may only be sold or issued by Amtrak or an authorized travel agent/tour operator. Any ticket purchased from an unauthorized third party will be voided. The ticket holder will not be eligible for travel or for a refund."</p>
+
+        <div class="table-scroll">
+          <table class="table">
+            <caption>Who is responsible for what</caption>
+            <thead>
+              <tr>
+                <th scope="col">Subject</th>
+                <th scope="col">Responsible</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">The search, the quotation and the accuracy of what is displayed</th><td>Us</td></tr>
+              <tr><th scope="row">Taking payment, and the service charge</th><td>Us</td></tr>
+              <tr><th scope="row">Correcting a booking we made wrongly</th><td>Us</td></tr>
+              <tr><th scope="row">The fare, and the conditions attached to it</th><td>Carrier</td></tr>
+              <tr><th scope="row">Running the train, its equipment, staffing and catering</th><td>Carrier</td></tr>
+              <tr><th scope="row">Delay, cancellation, diversion and any compensation for them</th><td>Carrier</td></tr>
+              <tr><th scope="row">Stations, boarding and assistance on the day</th><td>Carrier</td></tr>
+              <tr><th scope="row">Baggage rules, prohibited items and charges collected at the station</th><td>Carrier</td></tr>
+              <tr><th scope="row">Deciding whether a refund is due under the fare conditions</th><td>Carrier</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="s2" aria-labelledby="s2-h">
+        <h2 id="s2-h">2. What the price includes</h2>
+        <p>The total you approve is made up of the carrier's fare for the passengers and accommodation you selected, any carrier charge that applies to that fare, and our service charge.</p>
+        <p>Our service charge is a separate line. It is labelled as ours, shown in the price breakdown before you confirm, and carried into the total. It pays for arranging the sale, not for the journey, and it does not go to the carrier. If the carrier cancels the service, or if we make the booking wrongly, we refund the service charge with the fare. If you cancel and the fare conditions allow a refund, the fare is refunded under those conditions and the service charge is not.</p>
+        <p>What the fare buys depends on the class you choose. Fares are sold as Saver, Value, Flexible, Business and First, and First is sold on Acela only. Business Class is not sold on every long-distance train. Sleeping accommodations are Roomette, Bedroom, Family Room and Accessible Bedroom; they are priced per room rather than per passenger and include meals on board, and Family Rooms exist on Superliner equipment only. An itinerary may include Amtrak Thruway Connecting Services, which are scheduled motorcoach legs sold inside a rail itinerary.</p>
+        <p>The price does not include anything bought on board, parking, or any charge the carrier collects at the station.</p>
+        <p>Two documents come out of a completed booking, and they are not interchangeable. The eTicket carries a QR code and shows no price. The fare and the payment details appear on a separate sales receipt. The reservation number is six alphanumeric characters; the 13-digit ticket number appears on the receipt and not on the eTicket. Keep the receipt if you need to claim the cost back from anyone.</p>
+      </section>
+
+      <section id="s3" aria-labelledby="s3-h">
+        <h2 id="s3-h">3. Currency and the rate we use</h2>
+        <p>Each agency on this platform sells in a single currency, and every price on the site is shown in it.</p>
+        <p>Where that currency is not the US dollar, the fare is converted at a <strong>declared rate</strong>. A declared rate is a rate we set, publish and hold until we replace it. It is shown with the date it was declared, alongside the converted price. It is not a live market rate, and it will not match the interbank rate, a card network's rate or a bureau's rate on the day you travel or the day you buy.</p>
+        <p>The declared rate that applies to your booking is the one in force when the booking is confirmed. It is recorded on the confirmation, with its date, so the arithmetic can be checked later.</p>
+        <p>If your card is not held in the currency we charge, your card issuer may convert again and may add its own charge. That conversion is between you and your issuer. We neither see it nor control it.</p>
+        <p>Refunds are returned to the payment method used, in the currency we charged. Where the carrier settles a refund in dollars and the declared rate has moved since your booking, the amount returned may not be identical to the amount taken.</p>
+      </section>
+
+      <section id="s4" aria-labelledby="s4-h">
+        <h2 id="s4-h">4. How a booking is made</h2>
+        <p>Prices and seats shown in search results are quotations. They are not reserved for you and they can change or sell out while you are reading them.</p>
+        <p>A contract between you and us is formed only when we send you a confirmation carrying the carrier's reservation number. Entering payment details, or reaching a payment page, does not form it.</p>
+        <p>If the fare or the accommodation is gone between your selecting it and our confirming it, we tell you, we offer what is still available, and we take nothing until you accept an alternative. If a price shown was obviously wrong, for example a misplaced decimal or a mis-declared rate, we may decline to sell at it; we will say so before travel and refund in full anything already taken.</p>
+        <p>Some limits on a booking are the carrier's, not ours, and we cannot lift them:</p>
+        <ul>
+          <li>Journeys can be booked up to 335 days ahead; multi-ride products up to 90 days ahead.</li>
+          <li>Online booking closes 15 minutes before departure.</li>
+          <li>An online multi-city itinerary holds at most 5 segments.</li>
+          <li>An online transaction holds at most 8 fare-paying passengers. Nine to fourteen must be booked by telephone with the carrier, and fifteen or more through the carrier's group request form.</li>
+          <li>One reservation holds at most 4 different passenger types.</li>
+        </ul>
+        <p>Check the confirmation as soon as it arrives: names, dates, stations, direction and accommodation. Tell us the same day if anything is wrong. A correction made before travel is usually straightforward; the same correction at the barrier is usually not.</p>
+      </section>
+
+      <section id="s5" aria-labelledby="s5-h">
+        <h2 id="s5-h">5. Fare conditions, changes, refunds and travel credit</h2>
+        <p>Every fare carries conditions written by the carrier. They decide whether the booking can be changed, whether it can be refunded, whether a refund is money or credit, and by when each must be done. We show the conditions attached to a fare before you buy it, and they form part of what you are buying.</p>
+        <p>We cannot waive, vary or override those conditions, and we cannot obtain a refund that the fare does not allow. Where we have a discretion of our own, it is over our service charge and nothing else.</p>
+        <p>A change costs the difference between the fare you hold and the fare available for the new journey, plus any charge the carrier applies, plus our change fee. We tell you all three before we make the change, and we do not make it until you agree. If the new fare is lower, what happens to the difference is decided by the fare conditions.</p>
+        <p>After the carrier's cut-off we can no longer act on a reservation, because the reservation is closed to us as well as to you. Online booking closes 15 minutes before departure; after that, a change is a matter for the carrier at the station.</p>
+        <p>Where a refund is due, we process it and return it to the payment method used. The money comes from the carrier, so the time it takes is set by the carrier's settlement and your card issuer, not by us.</p>
+        <h3>Travel credit</h3>
+        <p>Some fare conditions produce travel credit instead of money. Credit is the carrier's, not ours. It is held against the carrier's own record of your booking, in the carrier's currency, and its expiry, transferability and use are governed by the carrier's rules. We can tell you what the carrier has told us. We cannot extend it, move it to another person, add to it, or turn it into cash, and our service charge is never part of it.</p>
+      </section>
+
+      <section id="s6" aria-labelledby="s6-h">
+        <h2 id="s6-h">6. When the carrier cancels or reschedules</h2>
+        <p>If the carrier cancels a service, reschedules it, substitutes equipment, changes the route or terminates a journey short of its destination, the carrier's conditions decide what you are entitled to. A claim of that kind is against the carrier. We will pass it on and help you make it, but we cannot decide it.</p>
+        <p>We forward notices to the contact details held on the booking, so keep them current. A notice sent to an address you no longer read has still been sent.</p>
+        <p>Schedules on this site are planned timetables taken from Amtrak's published GTFS feed. They are not live running information. Amtrak publishes no GTFS-Realtime feed, so nothing here reflects where a train actually is, or a change made on the day. Check the carrier's own information before you travel.</p>
+        <div class="note note-info">
+          <p>Times are shown in the local time of each station. The published feed contained twelve timezone defects, which we corrected: seven Arizona stations were labelled <span class="code">America/Denver</span>, though Arizona does not observe daylight saving, and five Gulf Coast stations were labelled <span class="code">America/New_York</span>, though Mississippi and Alabama are Central. Five of those also had their stop times written in local time rather than the feed's Eastern convention.</p>
+        </div>
+      </section>
+
+      <section id="s7" aria-labelledby="s7-h">
+        <h2 id="s7-h">7. Passengers, identity and discounted passenger types</h2>
+        <p>Book each passenger in the name shown on the identification they will carry. Carriers check identity, and we cannot promise that a mismatch will be accepted. Correcting a name is treated under the fare conditions, and on a restricted fare that can mean buying again.</p>
+        <p>A discounted passenger type is an eligibility claim. Selecting one is a statement that the passenger qualifies, and proof may be required at boarding. Amtrak states that travellers aged 65 and over are eligible for 10% off most rail fares on most trains, and that on services operated jointly with VIA Rail Canada the age is 60; proof of age is required. If proof cannot be produced, the carrier may collect the difference or refuse carriage, and neither outcome is a ground for a refund from us.</p>
+        <p>One reservation holds at most four different passenger types. Passengers aged 13, 14 and 15 travelling alone cannot be booked online at all, and arrangements for an unaccompanied young passenger must be made with the carrier under its own rules.</p>
+        <p>Two points about accessibility are worth stating rather than leaving to be discovered. Amtrak's own booking configuration says that a reservation for more than one traveller with a disability must be made by telephone with the carrier. And a completed online booking is not a confirmed request for station assistance: an Amtrak Office of Inspector General audit, <span class="mono">OIG-A-2025-009</span>, <em>Train Operations: The Company Can Improve the Quality of Customer Service to Passengers with Disabilities</em>, 11 July 2025, tested this and reported that "When we booked trips online between a station that offered assistance and one that did not, we could not request assistance at either station." Arrange assistance with the carrier directly, and do not assume a booking has done it for you.</p>
+      </section>
+
+      <section id="s8" aria-labelledby="s8-h">
+        <h2 id="s8-h">8. Baggage, pets and prohibited items</h2>
+        <p>Baggage allowances, sizes, weights, what may be checked, and which items are restricted or prohibited are set and published by the carrier and enforced by the carrier's staff. We do not set them, cannot vary them, and cannot clear an item in advance. Read the carrier's rules before you pack, particularly for anything unusual in shape, value or content. Any excess, oversize or handling charge is collected by the carrier at the station, not through us.</p>
+        <p>Pets travel under the carrier's pet policy, which we can describe but not change. Amtrak carries dogs and cats only, in a carrier, with a 20-pound limit on the combined weight of pet and carrier, on trips of up to seven hours on most routes, one pet per customer, for a fee charged on each segment; the pet carrier counts as one piece of carry-on baggage. Pets are not carried on the Auto Train, and not into Canada on the Adirondack, Maple Leaf or Cascades.</p>
+      </section>
+
+      <section id="s9" aria-labelledby="s9-h">
+        <h2 id="s9-h">9. Our liability, and its limits</h2>
+        <p>We are responsible for our own work: booking the journey you asked for, showing fare conditions and charges accurately before you pay, handling your payment and your personal data properly, issuing correct documents, and passing on what the carrier tells us.</p>
+        <p>We are not responsible for the operation of the service: punctuality, equipment, crewing, catering, station facilities, or a decision taken by the carrier's staff about carriage.</p>
+        <p>Where we are liable to you in connection with a booking, our liability is limited to the total you paid us for that booking, fare and service charge together.</p>
+        <p>We are not liable for losses of a different kind that we could not reasonably have foreseen, such as non-refundable accommodation, a missed flight or lost earnings, unless you told us at the time of booking that the journey depended on them.</p>
+        <p>Nothing in these terms excludes or limits any liability that cannot lawfully be excluded or limited, including liability for death or personal injury caused by our negligence and liability for fraud or fraudulent misrepresentation. Your rights under the consumer law that applies to you are not affected by anything written here.</p>
+      </section>
+
+      <section id="s10" aria-labelledby="s10-h">
+        <h2 id="s10-h">10. Complaints and how to escalate</h2>
+        <p>Bring a complaint to us first, through the <a href="contact.html">contact page</a>. Give the six-character reservation number, the date of travel, the route or train, what happened, and what you would like done. Those five things let us look the booking up once rather than three times.</p>
+        <p>We acknowledge complaints in writing and answer them in writing. If an answer needs more time, because it depends on the carrier, we say so and say what we are waiting for.</p>
+        <p>If your complaint is about the journey rather than the sale, the carrier decides it. We will forward it, tell you when we have, and follow it up, but the decision is not ours to make. Keep your tickets and your sales receipt until the matter is closed.</p>
+        <p>If we cannot resolve a complaint between us, you may take it to whichever consumer dispute-resolution body or transport regulator applies where the agency is established. The agency's legal name and place of establishment are in its registration details on this site.</p>
+      </section>
+
+      <section id="s11" aria-labelledby="s11-h">
+        <h2 id="s11-h">11. Governing law, versions and severability</h2>
+        <p>These terms, and any dispute about the sale, are governed by the law of the place of the agency's establishment, as stated in the agency's own registration details, and the courts of that place have jurisdiction. Where the consumer law of your country of residence gives you rights or a forum that cannot be contracted out of, those are unaffected.</p>
+        <p>The contract of carriage is a separate matter. It is governed by the carrier's own conditions and by the law that applies to them, which may not be the same law as this one.</p>
+        <p>The version of these terms that applies to your booking is the one published on this site when the booking was confirmed. We may change these terms for later bookings; a change never alters a booking already confirmed. Ask through the contact page if you need the version you bought under.</p>
+        <p>If any part of these terms is found to be unenforceable, that part is severed and the rest continues to apply.</p>
+      </section>
+
+    </div>
+  </div>
+</section>
+
+<section class="band band-surface" aria-labelledby="s12-h" id="s12">
+  <div class="wrap">
+    <div class="prose">
+      <h2 id="s12-h">12. This is a demonstration deployment</h2>
+      <div class="note note-warn">
+        <p><strong>No contract is formed here, and nothing issued here is valid for travel.</strong> No payment is taken, no card details are processed, and no booking is sent to any reservation system. Sections 1 to 11 describe how a real deployment of this platform sells rail travel. They do not describe a sale you can complete on this site, because there is none.</p>
+      </div>
+      <p>The schedules are real. They come from Amtrak's published GTFS feed, which contains 646 stops, 61 routes and 2,992 trips, with a service calendar running to 2 August 2027. That feed contains no fare data of any kind, and Amtrak publishes no public fare or booking API, so every fare, availability figure and price breakdown shown here is generated by this demonstration for illustration. None of them is an Amtrak fare.</p>
+      <p>Live inventory reaches a reseller only through a distribution agreement, and this demonstration holds none. The consequence is the one quoted in section 1: a ticket bought from a party the carrier has not authorised is void, and carries no right to travel and no right to a refund.</p>
+      <p>Any ticket, receipt, barcode or travel credit produced here is specimen material. It is not signed by a ticketing authority and no barrier, conductor or refund desk will honour it. Rail ticketing standards make the same distinction explicitly: ERA TAP TSI Technical Document B.12 defines a specimen flag inside the barcode data, described as "The bit must be set if the barcode is issued for test purpose", alongside a test-key regime under which "tickets signed using a test key can never be considered as valid". Treat everything this deployment issues on that footing.</p>
+      <p>To buy Amtrak travel, use Amtrak or an authorised travel agent or tour operator.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/generic.js"></script>
+</body>
+</html>

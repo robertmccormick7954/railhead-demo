@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact us</title>
+<meta name="description" content="Which support channel to use for which problem, what to have ready before you write, and a demonstration enquiry form that transmits nothing.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/contact.html">
+<meta property="og:title" content="Contact us">
+<meta property="og:description" content="Which support channel to use for which problem, what to have ready before you write, and a demonstration enquiry form that transmits nothing.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="help" data-depth="0" data-page="contact">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band" aria-labelledby="contact-title">
+  <div class="wrap wrap-narrow stack-6">
+    <p class="eyebrow">Support</p>
+    <h1 class="sign" id="contact-title">Contact us</h1>
+    <p class="lede">There are three ways to reach a person: the telephone, email, and the form on
+      this page. Which one is right depends mostly on how soon you travel. The telephone number, the
+      email address and the staffed hours belong to the agency running this storefront, and the
+      footer of every page carries them rather than this page repeating them.</p>
+  </div>
+</section>
+
+<section class="band band-surface" aria-labelledby="contact-channels">
+  <div class="wrap wrap-narrow stack-6">
+    <h2 id="contact-channels">Choosing a channel</h2>
+
+    <div class="table-scroll">
+      <table class="table">
+        <caption>Support channels and what each one is for</caption>
+        <thead>
+          <tr>
+            <th scope="col">Channel</th>
+            <th scope="col">Use it for</th>
+            <th scope="col">How soon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Telephone</th>
+            <td>Anything time-critical: a train today or tomorrow, a missed connection, a booking you
+              need changed before departure. Also the right channel if a written answer would take
+              longer to compose than to speak.</td>
+            <td>While the line is staffed. The hours are in the footer.</td>
+          </tr>
+          <tr>
+            <th scope="row">Email</th>
+            <td>Anything with a document attached, anything you want a written record of, and billing
+              queries where a receipt has to be read alongside the booking.</td>
+            <td>Slower than the telephone. The agency running this storefront publishes its own
+              times.</td>
+          </tr>
+          <tr>
+            <th scope="row">This form</th>
+            <td>The same things as email, when you would rather not open a mail client. In a live
+              deployment it joins the same written queue; in this demonstration build it transmits
+              nothing.</td>
+            <td>As email, once a deployment has been wired to a destination.</td>
+          </tr>
+          <tr>
+            <th scope="row">Your account</th>
+            <td>Retrieving an itinerary, reprinting a ticket, checking what a fare rule allows before
+              you ask anyone. <a href="manage.html">My trips</a> answers most of this without a
+              queue.</td>
+            <td>Immediately.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <p>No response time is promised here. Each agency operating on this platform sets and
+        publishes its own, and this page cannot state one on their behalf. The ordering holds either
+        way: the telephone answers sooner than anything written. If you travel within the next two
+        days, ring rather than write.</p>
+      <p>Three things are better raised elsewhere. The carrier's own online booking stops at eight
+        passengers, and a party of fifteen or more is handled through a group request rather than a
+        booking screen, so start at <a href="groups.html">group travel</a>. Something on this website
+        that blocked you — a control you could not operate, a page a screen reader could not
+        follow — is a defect in the build, and the
+        <a href="accessibility.html">accessibility</a> page explains what to include in the report.
+        Questions about what a fare class permits are answered on
+        <a href="fares.html">fares and refunds</a>, which is faster than asking.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="contact-ready">
+  <div class="wrap wrap-narrow stack-6">
+    <h2 id="contact-ready">What to have ready</h2>
+
+    <div class="prose">
+      <p>Nobody can answer a question about a booking until they can find the booking. Four details
+        make that immediate.</p>
+      <ul>
+        <li><strong>The reservation number.</strong> Six alphanumeric characters. It is on the
+          confirmation and on the ticket itself, and it is the fastest way to locate a booking.</li>
+        <li><strong>The date of travel</strong> and the two stations, in the direction you are
+          travelling. Station names repeat across the network, so the date settles which journey is
+          meant.</li>
+        <li><strong>The passenger name</strong> exactly as it was entered on the booking, including
+          middle names or initials if they were given. A booking is found under the name it carries,
+          not the name it should have carried.</li>
+        <li><strong>For a billing question, the ticket number</strong>, thirteen digits. It appears
+          on the sales receipt rather than on the ticket, because an Amtrak eTicket shows no price at
+          all. Payment details live on the receipt document.</li>
+      </ul>
+      <p>Send the reservation number as text. A screenshot of it cannot be searched for.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-sunk band-rule" aria-labelledby="contact-form-title">
+  <div class="wrap wrap-narrow stack-6">
+    <h2 id="contact-form-title">Send a message</h2>
+
+    <div class="note note-warn" id="contact-nothing-sent">
+      <p><strong>Nothing is transmitted.</strong> This is a demonstration build. The form below is
+        here to show the fields and the markup a real deployment would use. It has no destination:
+        submitting it sends no message, stores nothing and reaches nobody. To contact a real agency,
+        use the telephone number or the email address in the footer.</p>
+    </div>
+
+    <noscript>
+      <div class="note note-err">
+        <p>This form is handled entirely in the browser and needs JavaScript, which is switched off.
+          Nothing here will work without it. Use the email address in the footer of this page
+          instead.</p>
+      </div>
+    </noscript>
+
+    <div class="card">
+      <div class="card-body">
+        <form class="stack-6" id="contact-form" onsubmit="return false"
+              aria-describedby="contact-nothing-sent">
+          <fieldset class="fieldset">
+            <legend class="legend">About you</legend>
+
+            <div class="field">
+              <label class="label" for="contact-name">Your name
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="text" id="contact-name" name="name"
+                     autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label class="label" for="contact-email">Email address
+                <span class="label-hint">(required)</span></label>
+              <input class="input" type="email" id="contact-email" name="email"
+                     autocomplete="email" required aria-describedby="contact-email-help">
+              <p class="field-help" id="contact-email-help">In a live deployment the reply goes to
+                this address. It does not have to be the one on the booking.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="legend">Your enquiry</legend>
+
+            <div class="field">
+              <label class="label" for="contact-subject">What is this about
+                <span class="label-hint">(required)</span></label>
+              <select class="select" id="contact-subject" name="subject" required>
+                <option value="">Choose one</option>
+                <option value="booking-enquiry">Booking enquiry</option>
+                <option value="existing-booking">Existing booking</option>
+                <option value="accessibility">Accessibility</option>
+                <option value="group-travel">Group travel</option>
+                <option value="billing">Billing</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="label" for="contact-reference">Reservation number
+                <span class="label-hint">(optional, six characters)</span></label>
+              <input class="input" type="text" id="contact-reference" name="reference"
+                     maxlength="6" size="6" autocapitalize="characters" spellcheck="false"
+                     aria-describedby="contact-reference-help" style="max-width:12rem">
+              <p class="field-help" id="contact-reference-help">Leave it empty if you have not booked
+                yet.</p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="contact-date">Date of travel
+                <span class="label-hint">(optional)</span></label>
+              <input class="input" type="date" id="contact-date" name="travelDate"
+                     style="max-width:16rem">
+            </div>
+
+            <div class="field">
+              <label class="label" for="contact-message">Your message
+                <span class="label-hint">(required)</span></label>
+              <textarea class="textarea" id="contact-message" name="message" rows="7" required
+                        aria-describedby="contact-message-help"></textarea>
+              <p class="field-help" id="contact-message-help">Include the stations and the passenger
+                name if the enquiry is about a specific journey.</p>
+            </div>
+          </fieldset>
+
+          <div class="row row-wrap">
+            <button class="btn" type="button">Send message</button>
+            <span class="text-mute">Demonstration only. Nothing leaves this page.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/generic.js"></script>
+</body>
+</html>

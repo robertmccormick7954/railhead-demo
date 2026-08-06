@@ -1,0 +1,49 @@
+<!--railhead
+{"title":"Trains — Railhead","description":"Compare real Amtrak services, fare classes and accommodations for your dates.","script":"search","nav":"book"}
+-->
+<section class="band band-tight band-surface" aria-label="Change your search">
+  <div class="wrap">
+    <div id="search-mount"></div>
+  </div>
+</section>
+
+<section class="band band-tight" aria-labelledby="results-title">
+  <div class="wrap">
+    <ol class="stepper" id="stepper" aria-label="Booking progress"></ol>
+
+    <div class="row row-between row-wrap mb-4" style="gap:var(--sp-4)">
+      <div>
+        <h1 id="results-title" style="font-size:var(--step-3)">Choose your train</h1>
+        <p class="text-soft" id="results-summary"></p>
+      </div>
+      <div class="row" style="gap:var(--sp-3)">
+        <label class="label" for="sort" style="margin:0;font-size:var(--step--2)">Sort by</label>
+        <select class="select" id="sort" style="width:auto;min-height:40px;padding-block:6px;font-size:var(--step--1)">
+          <option value="dep">Departure time</option>
+          <option value="dur">Journey time</option>
+          <option value="price">Price</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="calendar-wrap" class="card mb-4" hidden>
+      <div class="row row-between row-wrap" style="gap:var(--sp-3)">
+        <h2 style="font-size:var(--step-0)">Cheapest nearby dates</h2>
+        <p class="text-mute" style="font-size:var(--step--2);margin:0">
+          Lead-in adult fare, one way, including the agency charge
+        </p>
+      </div>
+      <div class="table-scroll mt-4">
+        <div id="calendar" class="row" style="gap:var(--sp-2);min-width:max-content"></div>
+      </div>
+    </div>
+
+    <div class="grid grid-sidebar">
+      <div>
+        <div id="filters" class="card mb-4"></div>
+        <div id="results" aria-live="polite"></div>
+      </div>
+      <aside class="card" id="basket" aria-label="Your selection"></aside>
+    </div>
+  </div>
+</section>

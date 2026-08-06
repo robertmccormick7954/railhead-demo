@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Railhead — book Amtrak rail travel</title>
+<meta name="description" content="Search real Amtrak schedules, compare fares and book in one place. A white-label rail booking platform demonstration.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/index.html">
+<meta property="og:title" content="Railhead — book Amtrak rail travel">
+<meta property="og:description" content="Search real Amtrak schedules, compare fares and book in one place. A white-label rail booking platform demonstration.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Set the colour scheme and the tenant's brand colour before first paint.
+   Without this the page flashes the house palette before the tenant's own
+   applies, which on a white-label product looks like a bug in someone
+   else's brand. */
+(function () {
+  try {
+    var s = localStorage.getItem('railhead.scheme');
+    if (s && s !== 'auto') document.documentElement.dataset.scheme = s;
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="book" data-depth="0" data-page="index">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="grid grid-hero">
+      <div>
+        <span class="eyebrow">Amtrak rail travel</span>
+        <h1 id="hero-title" class="sign">Every train, every station, one booking.</h1>
+        <p class="lede mt-4" style="max-width:44ch">
+          Schedules on this site are the real published timetable — 646 stations, 2,992 daily
+          services, a full year ahead. Search it the way you would actually plan a trip.
+        </p>
+        <ul class="list-plain mt-6" style="display:grid;gap:var(--sp-3)">
+          <li class="row" style="gap:var(--sp-3);align-items:flex-start">
+            <span class="badge badge-brand">1</span>
+            <span>Multi-city trips of up to eight legs, not five.</span>
+          </li>
+          <li class="row" style="gap:var(--sp-3);align-items:flex-start">
+            <span class="badge badge-brand">2</span>
+            <span>More than one traveller needing assistance, on one reservation.</span>
+          </li>
+          <li class="row" style="gap:var(--sp-3);align-items:flex-start">
+            <span class="badge badge-brand">3</span>
+            <span>Station assistance requested while you book, not on a phone line afterwards.</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="board" id="board" aria-label="Live departure board"></div>
+        <div class="row mt-4" style="gap:var(--sp-3)">
+          <label class="label" for="board-station" style="margin:0;font-size:var(--step--2)">Board station</label>
+          <select class="select" id="board-station" style="min-height:38px;width:auto;padding-block:4px;font-size:var(--step--2)"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8" id="search-mount"></div>
+  </div>
+</section>
+
+<section class="band band-surface band-rule" aria-labelledby="fix-title">
+  <div class="wrap">
+    <span class="eyebrow">Why this exists</span>
+    <h2 id="fix-title">Four limits we removed</h2>
+    <p class="lede mt-4" style="max-width:62ch">
+      Each of these is a published limit of the carrier's own retail website, not a guess about it.
+      A booking made through a distribution channel is not bound by the caps the carrier applies to
+      its own online shop.
+    </p>
+
+    <div class="grid grid-4 mt-8">
+      <article class="card">
+        <span class="badge">Party size</span>
+        <h3 class="mt-4">More than eight travellers</h3>
+        <p class="text-soft mt-4" style="font-size:var(--step--1)">
+          The carrier's website takes eight fare-paying passengers per transaction and sends nine to
+          fourteen to a telephone line. Here they stay on one reservation.
+        </p>
+      </article>
+      <article class="card">
+        <span class="badge">Accessibility</span>
+        <h3 class="mt-4">Two travellers with disabilities</h3>
+        <p class="text-soft mt-4" style="font-size:var(--step--1)">
+          The carrier's own booking configuration reads: “To make reservations for more than one
+          traveler with a disability, call 1-800-USA-RAIL.” This booking flow does it online.
+        </p>
+      </article>
+      <article class="card">
+        <span class="badge">Assistance</span>
+        <h3 class="mt-4">Station assistance, in the flow</h3>
+        <p class="text-soft mt-4" style="font-size:var(--step--1)">
+          A federal audit found the carrier's own testers could not request station assistance while
+          booking online. Here it is a step in the booking, carried on the record.
+        </p>
+      </article>
+      <article class="card">
+        <span class="badge">Itineraries</span>
+        <h3 class="mt-4">Eight legs, not five</h3>
+        <p class="text-soft mt-4" style="font-size:var(--step--1)">
+          Open-jaw and multi-stop trips that exceed the carrier's five-segment online cap are built
+          and priced as one itinerary.
+        </p>
+      </article>
+    </div>
+
+    <p class="mt-6" style="font-size:var(--step--1)">
+      <a class="link-quiet" href="accessibility.html">Read the accessibility position in full</a>
+    </p>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="routes-title">
+  <div class="wrap">
+    <span class="eyebrow">Where people go</span>
+    <h2 id="routes-title">Busy city pairs</h2>
+    <p class="text-soft mt-4">Ranked by how many services actually run between them in the published timetable.</p>
+    <div class="grid grid-3 mt-6" id="popular-routes"></div>
+  </div>
+</section>
+
+<section class="band band-sunk band-rule" aria-labelledby="data-title">
+  <div class="wrap">
+    <div class="grid grid-2" style="gap:var(--sp-8);align-items:start">
+      <div>
+        <span class="eyebrow">Under the bonnet</span>
+        <h2 id="data-title">Where the timetable comes from</h2>
+        <p class="mt-4">
+          Every departure, arrival, calling point and connection on this site is read from the
+          carrier's own published GTFS feed. Nothing about the schedule is invented, and nothing is
+          scraped: the feed is public, and it is the only Amtrak data source that is.
+        </p>
+        <p class="mt-4">
+          Fares are a different matter. The feed contains no fare data at all, and there is no public
+          fare API, so prices here are generated by a clearly-labelled simulation behind a swappable
+          provider interface. A production deployment prices through a contracted distribution feed.
+        </p>
+        <p class="mt-6">
+          <a class="btn btn-secondary" href="architecture.html">How it connects</a>
+        </p>
+      </div>
+      <div class="card" id="feed-facts">
+        <h3>Feed status</h3>
+        <table class="table mt-4" id="feed-table">
+          <caption class="visually-hidden">Schedule data source and coverage</caption>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/home.js"></script>
+</body>
+</html>
