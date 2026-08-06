@@ -151,7 +151,23 @@ configuration and help pages)
   either station."
 
 **Products**
-- Fare classes: Saver, Value, Flexible, Business, First (First is Acela only).
+- Rail fare buckets: **Flex, Value and Sale** — three, not five. There is no
+  "Saver" fare and no "Flexible" fare; those names are out of date and must never
+  appear. The buckets apply across Coach, Acela Business and Acela First.
+  Flex: full refund to the original payment before departure, no fee; changes
+  free but a fare difference may apply. Value: 30% forfeited on cancellation,
+  70% refunded, changes not permitted. Sale: 50% forfeited, 50% refunded,
+  changes not permitted, available only during an active sale.
+- Non-Acela Business Class is NOT one of those buckets — it is "fully refundable
+  and changeable without any fees".
+- Acela First Class has no rules of its own: refund and change follow whichever
+  bucket was purchased.
+- Private rooms use a time-based refund scale: 121 days or more, full refund;
+  120 to 15 days, 75% to the original payment; within 14 days, 75% as a
+  NON-REFUNDABLE eVoucher.
+- Risk-free cancellation: full refund if cancelled within 24 hours of purchase
+  and before departure (1 hour for unreserved services).
+- No-show: all fares are non-refundable and non-changeable after departure.
 - Sleeping accommodations: Roomette, Bedroom, Family Room, Accessible Bedroom.
   Family Rooms exist on Superliner equipment only. Accommodations are priced per
   room and include meals on board.

@@ -33,73 +33,93 @@ import { Net, milesBetween } from './data.js';
    -------------------------------------------------------------------------- */
 
 export const PRODUCTS = {
-  saver: {
-    key: 'saver', name: 'Saver', kind: 'seat', order: 1,
-    blurb: 'Lowest fare, limited seats',
-    rules: ['Non-refundable', 'Changes not permitted', 'Limited availability'],
-    refundable: false, changeable: false, changeFeePct: 0,
+  /* Amtrak's rail fare structure is three buckets — Flex, Value and Sale —
+     applied across Coach, Acela Business and Acela First. There is no longer a
+     "Saver" fare; the older four- and five-bucket ladders are out of date.
+     Non-Acela Business Class is NOT one of these buckets: it carries its own
+     always-flexible rules, so it is modelled separately below. */
+  sale: {
+    key: 'sale', name: 'Sale', kind: 'seat', order: 1,
+    blurb: 'Lowest fare, offered during a sale',
+    rules: ['Half the fare is forfeited if you cancel', 'Changes are not permitted', 'Limited availability'],
+    refundable: 'partial', refundPct: 50, changeable: false,
   },
   value: {
     key: 'value', name: 'Value', kind: 'seat', order: 2,
-    blurb: 'The everyday coach fare',
-    rules: ['Refundable to travel credit', 'Free changes before departure', 'Seats released as the train fills'],
-    refundable: 'credit', changeable: true, changeFeePct: 0,
+    blurb: 'The everyday fare',
+    rules: ['70% refunded if you cancel before departure', 'Changes are not permitted', 'Seats released as the train fills'],
+    refundable: 'partial', refundPct: 70, changeable: false,
   },
-  flexible: {
-    key: 'flexible', name: 'Flexible', kind: 'seat', order: 3,
-    blurb: 'Refund to your original payment',
-    rules: ['Fully refundable to the original payment method', 'Free changes any time', 'Always available'],
-    refundable: true, changeable: true, changeFeePct: 0,
+  flex: {
+    key: 'flex', name: 'Flex', kind: 'seat', order: 3,
+    blurb: 'Refundable, and changeable',
+    rules: ['Full refund to your original payment before departure', 'Change with no fee — a fare difference may apply', 'Always available'],
+    refundable: true, refundPct: 100, changeable: true,
   },
   business: {
     key: 'business', name: 'Business', kind: 'seat', order: 4,
-    blurb: 'More room, quieter carriage',
-    rules: ['Refundable to travel credit', 'Free changes before departure', 'Extra legroom and a wider seat'],
-    refundable: 'credit', changeable: true, changeFeePct: 0,
+    blurb: 'More room, and fully flexible',
+    rules: ['Fully refundable, with no fee', 'Change with no fee', 'Extra legroom and a wider seat'],
+    refundable: true, refundPct: 100, changeable: true,
   },
   first: {
-    key: 'first', name: 'First', kind: 'seat', order: 5,
+    key: 'first', name: 'Acela First', kind: 'seat', order: 5,
     blurb: 'Reserved seat, at-seat service',
-    rules: ['Fully refundable', 'Free changes any time', 'At-seat service and lounge access'],
-    refundable: true, changeable: true, changeFeePct: 0,
+    rules: ['Refund and change follow the fare bucket you buy', 'At-seat service', 'Acela only'],
+    refundable: 'bucket', changeable: 'bucket',
   },
+  /* Private rooms have a time-based refund scale rather than a flat percentage,
+     and inside 14 days the value comes back as a non-refundable voucher. */
   roomette: {
     key: 'roomette', name: 'Roomette', kind: 'room', order: 6, sleeps: 2,
     blurb: 'Private room for one or two',
-    rules: ['Priced per room, not per person', 'Meals included on board', 'Beds made up for the night'],
-    refundable: 'credit', changeable: true, changeFeePct: 0,
+    rules: ['Priced per room, not per person', 'Meals included on board', 'Refund scale depends on how far ahead you cancel'],
+    refundable: 'scale', changeable: true,
   },
   bedroom: {
     key: 'bedroom', name: 'Bedroom', kind: 'room', order: 7, sleeps: 2,
-    blurb: 'Larger room with a private washroom',
-    rules: ['Priced per room, not per person', 'Meals included on board', 'Private toilet and shower'],
-    refundable: 'credit', changeable: true, changeFeePct: 0,
+    blurb: 'Larger private room',
+    rules: ['Priced per room, not per person', 'Meals included on board', 'Refund scale depends on how far ahead you cancel'],
+    refundable: 'scale', changeable: true,
   },
   family: {
     key: 'family', name: 'Family Room', kind: 'room', order: 8, sleeps: 4,
-    blurb: 'Sleeps two adults and two children',
-    rules: ['Priced per room, not per person', 'Meals included on board', 'Spans the full width of the carriage'],
-    refundable: 'credit', changeable: true, changeFeePct: 0,
+    blurb: 'A room for a family, on Superliner trains',
+    rules: ['Priced per room, not per person', 'Meals included on board', 'Superliner equipment only'],
+    refundable: 'scale', changeable: true,
   },
   access: {
     key: 'access', name: 'Accessible Bedroom', kind: 'room', order: 9, sleeps: 2,
-    blurb: 'Step-free room on the lower level',
-    rules: ['Priced per room, not per person', 'Meals included on board', 'Reserved for travellers who need it'],
-    refundable: 'credit', changeable: true, changeFeePct: 0,
+    blurb: 'A room for a traveller who needs it',
+    rules: ['Priced per room, not per person', 'Meals included on board', 'Held for travellers who need it'],
+    refundable: 'scale', changeable: true,
   },
   vehicle: {
     key: 'vehicle', name: 'Vehicle', kind: 'vehicle', order: 10,
     blurb: 'Carry your car on the Auto Train',
-    rules: ['One vehicle per booking', 'Priority offloading available', 'Arrive at least two hours before departure'],
-    refundable: 'credit', changeable: true, changeFeePct: 0,
+    rules: ['Priced per vehicle', 'Arrive well before departure', 'Refund scale as for a room'],
+    refundable: 'scale', changeable: true,
   },
+};
+
+/* The private-room refund scale, and the 24-hour risk-free window, published on
+   the fares page rather than hard-coded into copy. */
+export const REFUND_RULES = {
+  riskFreeHours: 24,
+  riskFreeUnreservedHours: 1,
+  roomScale: [
+    { fromDays: 121, refundPct: 100, as: 'payment' },
+    { fromDays: 15, refundPct: 75, as: 'payment' },
+    { fromDays: 0, refundPct: 75, as: 'voucher' },
+  ],
+  noShow: 'A fare not cancelled before departure is forfeited in full.',
 };
 
 /** Which products a route's declared classes actually unlock. */
 export function productsForRoute(route) {
   const out = [];
   const cls = route.cls || ['coach'];
-  if (cls.includes('coach')) out.push('saver', 'value', 'flexible');
+  if (cls.includes('coach')) out.push('sale', 'value', 'flex');
   if (cls.includes('business')) out.push('business');
   if (cls.includes('first')) out.push('first');
   for (const k of ['roomette', 'bedroom', 'family', 'access', 'vehicle']) {
@@ -153,7 +173,11 @@ const MODEL = {
     thruway: 0.75,    // connecting motorcoach
     partner: 0.80,
   },
-  bucket: { saver: 0.72, value: 1.00, flexible: 1.42, business: 1.55, first: 1.85 },
+  /* Amtrak's own published example of the restructure prices a Washington to
+     Philadelphia one-way at $18 Value against $20 Flex, and $9 against $10 on
+     the Night Owl — about 11% either way. Flex is not the large premium the old
+     "Flexible" fare was, and modelling it as one would misrepresent the ladder. */
+  bucket: { sale: 0.74, value: 1.00, flex: 1.12, business: 1.55, first: 1.85 },
   room: {
     roomette: { mult: 2.60, add: 90 },
     bedroom: { mult: 4.40, add: 160 },
@@ -294,11 +318,12 @@ export class DemoFareProvider extends FareProvider {
  */
 function availabilityFor(key, seed, daysAhead) {
   const r = rand01(`${seed}|${key}|avail`);
-  if (key === 'saver') {
+  // Sale fares exist only during an active sale, and go first.
+  if (key === 'sale') {
     if (daysAhead < 10) return { remaining: 0 };
-    return { remaining: r < 0.42 ? 0 : Math.floor(r * 8) + 1 };
+    return { remaining: r < 0.48 ? 0 : Math.floor(r * 8) + 1 };
   }
-  if (key === 'flexible' || key === 'value') {
+  if (key === 'flex' || key === 'value') {
     return { remaining: Math.floor(r * 40) + 12 };
   }
   if (key === 'business' || key === 'first') {
