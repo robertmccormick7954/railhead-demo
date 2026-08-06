@@ -267,7 +267,7 @@ function paintBranding(mount) {
           el('td', { class: 'num' }, `${ratio.toFixed(2)}:1`),
           el('td', {}, el('span', { class: ok ? 'badge badge-ok' : 'badge badge-err' }, ok ? 'AA' : 'Below AA')));
       })));
-    preview.append(table);
+    preview.append(el('div', { class: 'table-scroll' }, table));
 
     const raw = contrastRatio(draft.brand.primary, draft.brand.surface);
     if (raw < 4.5) {

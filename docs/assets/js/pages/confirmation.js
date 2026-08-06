@@ -5,8 +5,10 @@ import { Net } from '../data.js';
 import { money, Theme } from '../theme.js';
 import { findBooking } from '../booking.js';
 import { resolveJourney } from '../booking.js';
+import { loadPhotos, photo } from '../photos.js';
 
 await page({ active: 'book', depth: Number(document.body.dataset.depth || 0), needsNetwork: true });
+await loadPhotos();
 
 const params = new URLSearchParams(location.search);
 const tenantParam = params.get('tenant');
@@ -34,6 +36,12 @@ if (!booking) {
 }
 
 function paint(b) {
+  /* The destination, once, at the top. A confirmation is the one moment in a
+     booking where a picture is doing emotional work rather than informational. */
+  const dest = b.legs[0]?.summary?.to;
+  const pic = dest ? photo(`city-${dest}`, { alt: '', sizes: '100vw' }) : null;
+  if (pic) mount.append(el('div', { class: 'media media-hero mb-4' }, pic));
+
   mount.append(el('div', { class: 'card card-raise' },
     el('span', { class: 'badge badge-ok' }, 'Confirmed'),
     el('h1', { class: 'sign mt-4', style: 'font-size:var(--step-4)' }, 'Your trip is booked.'),

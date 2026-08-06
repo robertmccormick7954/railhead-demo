@@ -62,6 +62,23 @@ export function onColor(bg) {
   return contrastRatio(bg, '#FFFFFF') >= contrastRatio(bg, '#0B0B0B') ? '#FFFFFF' : '#0B0B0B';
 }
 
+/**
+ * A muted version of the legible text colour for the same background, still
+ * clearing AA. Secondary text on an inverted surface is where "muted" tokens
+ * tuned for light backgrounds go wrong.
+ */
+export function softOn(bg, target = 4.5) {
+  const ink = onColor(bg);
+  const away = ink === '#FFFFFF' ? bg : '#FFFFFF';
+  let best = ink;
+  for (let step = 1; step <= 12; step++) {
+    const candidate = mix(ink, away, step / 24);
+    if (contrastRatio(candidate, bg) < target) break;
+    best = candidate;
+  }
+  return best;
+}
+
 function mix(hex, target, amount) {
   const a = parseHex(hex);
   const b = parseHex(target);
@@ -180,7 +197,15 @@ export function applyTenant(tenant) {
   set('--text', b.ink);
   set('--radius', b.radius);
   set('--radius-lg', b.radiusLarge);
-  set('--surface-invert', b.primaryActive || b.ink);
+  const invert = b.footerBg || b.primaryActive || b.ink;
+  set('--surface-invert', invert);
+  /* THE BUG THIS PREVENTS: --surface-invert was being overridden with the
+     tenant's dark brand colour while --text-invert kept the value the dark
+     scheme had set for a LIGHT invert surface. The footer became dark green
+     with near-black text at 1.29:1. Never author the pair — derive the text
+     colour from the surface it will actually sit on. */
+  set('--text-invert', onColor(invert));
+  set('--text-invert-soft', softOn(invert));
 
   if (b.fontDisplay) set('--font-display', `"${b.fontDisplay}", "Helvetica Neue", Arial, sans-serif`);
   if (b.fontBody) set('--font-body', `"${b.fontBody}", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`);
@@ -201,19 +226,14 @@ export function applyTenant(tenant) {
 
 /* --------------------------------------------------------------------------
    Colour scheme
+   There is one. A dark scheme was removed deliberately — see tokens.css.
    -------------------------------------------------------------------------- */
 
-export function applyScheme(scheme) {
-  Theme.scheme = scheme;
-  const root = document.documentElement;
-  if (scheme === 'auto') delete root.dataset.scheme;
-  else root.dataset.scheme = scheme;
-  try { localStorage.setItem(STORE_SCHEME, scheme); } catch { /* ignore */ }
+export function applyScheme() {
+  document.documentElement.removeAttribute('data-scheme');
 }
 
-export function storedScheme() {
-  try { return localStorage.getItem(STORE_SCHEME) || 'auto'; } catch { return 'auto'; }
-}
+export function storedScheme() { return 'light'; }
 
 /* --------------------------------------------------------------------------
    Locale-aware formatting, driven entirely by the tenant
@@ -320,7 +340,7 @@ export function baseTenant(id) {
  * every page; it is safe to call more than once.
  */
 export async function boot() {
-  applyScheme(storedScheme());
+  applyScheme();
   await loadTenants();
   const id = pickTenantId();
   const tenant = resolveTenant(id);

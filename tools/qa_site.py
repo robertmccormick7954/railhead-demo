@@ -148,10 +148,18 @@ STRUCTURE_JS = r"""
 """
 
 
+SCHEME = "light"
+
+
 def main():
+    global SCHEME
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default="http://localhost:8811")
+    ap.add_argument("--scheme", default="light", choices=["light", "dark"],
+                   help="colour scheme to audit; run BOTH — the dark scheme is where "
+                        "inverted surfaces go wrong")
     args = ap.parse_args()
+    SCHEME = args.scheme
 
     pages = []
     for root, _dirs, files in os.walk(SITE):
@@ -171,7 +179,8 @@ def main():
         browser = pw.chromium.launch()
 
         # --- pass 1: every page, default tenant, desktop ---
-        page = browser.new_page(viewport={"width": 1400, "height": 1000})
+        page = browser.new_page(viewport={"width": 1400, "height": 1000},
+                                color_scheme=SCHEME)
         console_errors = []
         page.on("pageerror", lambda e: console_errors.append(str(e)))
         page.on("console", lambda m: console_errors.append(m.text) if m.type == "error" else None)
@@ -296,7 +305,7 @@ def main():
         for kind, _ in items:
             by_kind[kind] += 1
 
-    print(f"\nchecked {checked} pages x 3 viewports x {len(tenant_ids)} tenants\n")
+    print(f"\nchecked {checked} pages x 3 viewports, {SCHEME} scheme\n")
     if not problems:
         print("CLEAN — no problems found")
         return 0

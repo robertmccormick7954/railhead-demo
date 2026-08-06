@@ -109,7 +109,14 @@ function paintCardFields() {
   const kind = PAYMENT_METHODS[method]?.kind;
 
   if (kind === 'card') {
-    mount.append(el('div', { class: 'grid grid-2' },
+    const panel = el('div', { class: 'pay-panel' },
+      el('p', { class: 'pay-panel-head' },
+        el('span', { class: 'pay-lock', 'aria-hidden': 'true',
+          html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>' }),
+        el('span', {}, 'Your card details are encrypted and sent straight to the payment provider. '
+          + 'They never reach this website.')));
+    mount.append(panel);
+    panel.append(el('div', { class: 'grid grid-2' },
       textField('card-number', 'Card number', { inputmode: 'numeric', autocomplete: 'cc-number', placeholder: '0000 0000 0000 0000' }),
       textField('card-name', 'Name on card', { autocomplete: 'cc-name' }),
       textField('card-exp', 'Expiry', { placeholder: 'MM/YY', autocomplete: 'cc-exp' }),

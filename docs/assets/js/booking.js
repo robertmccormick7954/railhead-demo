@@ -220,12 +220,33 @@ export function tooCloseToDeparture(depInstant) {
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+/**
+ * Accept what people actually type and normalise it, rather than rejecting it.
+ * "Inflexible input forms requiring specific formatting" is one of the few
+ * failures that shows up in all three of NN/g's rounds of older-adult testing,
+ * across nearly twenty years. A phone number with brackets, a card number with
+ * spaces and a reference typed in lower case are all valid input.
+ */
+export function normalisePhone(value) {
+  const s = String(value || '').trim();
+  const plus = s.startsWith('+') ? '+' : '';
+  return plus + s.replace(/[^\d]/g, '');
+}
+
+export function normaliseReference(value) {
+  return String(value || '').replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+}
+
+export function normaliseEmail(value) {
+  return String(value || '').trim().replace(/\s+/g, '');
+}
+
 export function validateContact(contact) {
   const errors = {};
   if (!contact.firstName?.trim()) errors.firstName = 'Enter the lead traveller’s first name.';
   if (!contact.lastName?.trim()) errors.lastName = 'Enter the lead traveller’s last name.';
   if (!contact.email?.trim()) errors.email = 'Enter an email address so we can send the ticket.';
-  else if (!EMAIL.test(contact.email.trim())) errors.email = 'That email address is not complete.';
+  else if (!EMAIL.test(normaliseEmail(contact.email))) errors.email = 'That email address is not complete.';
   return errors;
 }
 

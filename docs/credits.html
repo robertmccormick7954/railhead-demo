@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photo credits — Railhead</title>
+<meta name="description" content="Every photograph on this site, with its photographer and licence.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://railhead-demo.example/credits.html">
+<meta property="og:title" content="Photo credits — Railhead">
+<meta property="og:description" content="Every photograph on this site, with its photographer and licence.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/publicsans-latin-300-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-800-n.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<script>
+/* Paint the storefront's brand colour before first paint, so the page does not
+   flash the house palette and then repaint. */
+(function () {
+  try {
+    var t = new URLSearchParams(location.search).get('tenant') || localStorage.getItem('railhead.tenant');
+    if (t) document.documentElement.dataset.tenant = t;
+    var c = localStorage.getItem('railhead.brandcache');
+    if (c) {
+      c = JSON.parse(c);
+      if (c.id === t) {
+        var r = document.documentElement.style;
+        for (var k in c.vars) r.setProperty(k, c.vars[k]);
+      }
+    }
+  } catch (e) { /* private mode: fall through to the default palette */ }
+})();
+</script>
+</head>
+<body data-nav="help" data-depth="0" data-page="credits">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="disclosure-strip" class="disclosure-strip"></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<section class="band band-tight" aria-labelledby="cr-title">
+  <div class="wrap">
+    <h1 id="cr-title" style="font-size:var(--step-3)">Photo credits</h1>
+    <p class="lede mt-4" style="max-width:60ch">
+      Every photograph here is used under a licence that permits it, and several of those licences
+      require the photographer to be named. This page names them.
+    </p>
+    <p class="mt-4" style="max-width:66ch">
+      None of these images comes from a rail operator's own website. They are photographs of the same
+      trains, stations and cities, published by their photographers on Wikimedia Commons under Creative
+      Commons licences or released into the public domain.
+    </p>
+    <div id="credits" class="mt-8" aria-live="polite"></div>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script type="module" src="assets/js/pages/credits.js"></script>
+</body>
+</html>

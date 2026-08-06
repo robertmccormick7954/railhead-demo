@@ -1,0 +1,853 @@
+{
+ "_comment": "Photography shipped with this build. Every image is from Wikimedia Commons under a licence permitting commercial use. Attribution is reproduced on credits.html, which is linked from every page footer. No image is taken from any carrier's website.",
+ "photos": {
+  "hero-1": {
+   "files": [
+    {
+     "file": "hero-1-1800.webp",
+     "w": 1800,
+     "h": 900,
+     "bytes": 161582
+    },
+    {
+     "file": "hero-1-1100.webp",
+     "w": 1100,
+     "h": 550,
+     "bytes": 77058
+    },
+    {
+     "file": "hero-1-700.webp",
+     "w": 700,
+     "h": 350,
+     "bytes": 37408
+    }
+   ],
+   "kind": "wide",
+   "title": "19960519 01 Amtrak Rockville Bridge, PA (5414999874).jpg",
+   "author": "David Wilson from Oak Park, Illinois, USA",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:19960519_01_Amtrak_Rockville_Bridge,_PA_(5414999874).jpg",
+   "caption": "19960519 01 Amtrak Rockville Bridge, PA. From the time and location the train is either the Pennsylvanian or Three Rivers."
+  },
+  "route-acela": {
+   "files": [
+    {
+     "file": "route-acela-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 69866
+    },
+    {
+     "file": "route-acela-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 28748
+    }
+   ],
+   "kind": "card",
+   "title": "Acela Express - old and new, at South Station August 2025.jpg",
+   "author": "4300streetcar",
+   "licence": "CC BY 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Acela_Express_-_old_and_new,_at_South_Station_August_2025.jpg",
+   "caption": "An older original Acela Express trainset (left), and a newer \"Nextgen\" Avelia Liberty trainset (right), at South Station in Boston"
+  },
+  "route-california-zephyr": {
+   "files": [
+    {
+     "file": "route-california-zephyr-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 68606
+    },
+    {
+     "file": "route-california-zephyr-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 29658
+    }
+   ],
+   "kind": "card",
+   "title": "Amtrak California Zephyr at Denver Union Station August 2022.jpg",
+   "author": "4300streetcar",
+   "licence": "CC BY 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Amtrak_California_Zephyr_at_Denver_Union_Station_August_2022.jpg",
+   "caption": "The Amtrak California Zephyr train at Denver Union Station in August 2022."
+  },
+  "route-coast-starlight": {
+   "files": [
+    {
+     "file": "route-coast-starlight-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 82374
+    },
+    {
+     "file": "route-coast-starlight-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 32734
+    }
+   ],
+   "kind": "card",
+   "title": "AMTK 285 with Train 11, The Coast Starlight, at Davis, CA in August 1985. (28506382745).jpg",
+   "author": "Roger Puta",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:AMTK_285_with_Train_11,_The_Coast_Starlight,_at_Davis,_CA_in_August_1985._(28506382745).jpg",
+   "caption": "A Roger Puta Photograph"
+  },
+  "route-empire-builder": {
+   "files": [
+    {
+     "file": "route-empire-builder-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 77806
+    },
+    {
+     "file": "route-empire-builder-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 30382
+    }
+   ],
+   "kind": "card",
+   "title": "A rather smokey Eastbound Empire Builder Leaving East Glacier Park In Montana This Image also appears in 'Amtrak train Routes' - panoramio.jpg",
+   "author": "Loco Steve",
+   "licence": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:A_rather_smokey_Eastbound_Empire_Builder_Leaving_East_Glacier_Park_In_Montana_This_Image_also_appears_in_%27Amtrak_train_Routes%27_-_panoramio.jpg",
+   "caption": "A rather smokey Eastbound Empire Builder Leaving East Glacier Park In Montana    This Image  also appears in 'Amtrak train Routes'"
+  },
+  "route-southwest-chief": {
+   "files": [
+    {
+     "file": "route-southwest-chief-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 45236
+    },
+    {
+     "file": "route-southwest-chief-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 20768
+    }
+   ],
+   "kind": "card",
+   "title": "19980328 03 Amtrak Southwest Chief, LaJunta, Colorado (6363288267).jpg",
+   "author": "David Wilson from Oak Park, Illinois, USA",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:19980328_03_Amtrak_Southwest_Chief,_LaJunta,_Colorado_(6363288267).jpg",
+   "caption": "19980328 03 Amtrak Southwest Chief, LaJunta, Colorado"
+  },
+  "route-northeast-regional": {
+   "files": [
+    {
+     "file": "route-northeast-regional-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 87800
+    },
+    {
+     "file": "route-northeast-regional-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 31074
+    }
+   ],
+   "kind": "card",
+   "title": "Amtrak Northeast Regional 139 September 2025 1.jpg",
+   "author": "4300streetcar",
+   "licence": "CC BY 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Amtrak_Northeast_Regional_139_September_2025_1.jpg",
+   "caption": "Amtrak Northeast Regional train #139, led by ACS-64 #614, heads south near Readville. The track in the foreground is to MBTA's Franklin/Foxboro Line, near where it diverges off the"
+  },
+  "route-cascades": {
+   "files": [
+    {
+     "file": "route-cascades-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 58456
+    },
+    {
+     "file": "route-cascades-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 25276
+    }
+   ],
+   "kind": "card",
+   "title": "Amtrak Cascades \"Mt. Jefferson\" Talgo trainset parked at King Street Station, Seattle (9534289151).jpg",
+   "author": "Gordon Werner from Seattle, United States",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Amtrak_Cascades_%22Mt._Jefferson%22_Talgo_trainset_parked_at_King_Street_Station,_Seattle_(9534289151).jpg",
+   "caption": "Amtrak Cascades \"Mt. Jefferson\" Talgo trainset parked at King Street Station, Seattle"
+  },
+  "route-pacific-surfliner": {
+   "files": [
+    {
+     "file": "route-pacific-surfliner-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 66338
+    },
+    {
+     "file": "route-pacific-surfliner-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 28882
+    }
+   ],
+   "kind": "card",
+   "title": "AMTRAK Surfliner Train (13895143144).jpg",
+   "author": "Prayitno / Thank you for (3.5 millions +) views from Los Angeles, USA",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:AMTRAK_Surfliner_Train_(13895143144).jpg",
+   "caption": "Location : San Juan Capistrano Station, California"
+  },
+  "station-NYP": {
+   "files": [
+    {
+     "file": "station-NYP-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 106894
+    },
+    {
+     "file": "station-NYP-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 47674
+    }
+   ],
+   "kind": "card",
+   "title": "Daniel P. Moynihan Train Hall (interior), NYC - 20220615.jpg",
+   "author": "Andre Carrotflower",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Daniel_P._Moynihan_Train_Hall_(interior),_NYC_-_20220615.jpg",
+   "caption": "The interior of the Daniel P. Moynihan Train Hall in New York City, as seen on a June 2022 afternoon. Spearheaded by the long-serving U.S. Senator whose name now graces the facilit"
+  },
+  "station-WAS": {
+   "files": [
+    {
+     "file": "station-WAS-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 135844
+    },
+    {
+     "file": "station-WAS-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 48814
+    }
+   ],
+   "kind": "card",
+   "title": "DC Union Station East Hall.jpg",
+   "author": "Jprg1966",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:DC_Union_Station_East_Hall.jpg",
+   "caption": "East Hall in Washington, D.C.'s Union Station."
+  },
+  "station-PHL": {
+   "files": [
+    {
+     "file": "station-PHL-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 70712
+    },
+    {
+     "file": "station-PHL-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 31660
+    }
+   ],
+   "kind": "card",
+   "title": "30th Street Station, Philadelphia.JPG",
+   "author": "Ngilmour3",
+   "licence": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:30th_Street_Station,_Philadelphia.JPG",
+   "caption": "This is an image of a place or building that is listed on the National Register of Historic Places in the United States of America. Its reference number is 78002456 (Wikidata)."
+  },
+  "station-BOS": {
+   "files": [
+    {
+     "file": "station-BOS-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 77282
+    },
+    {
+     "file": "station-BOS-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 34282
+    }
+   ],
+   "kind": "card",
+   "title": "2017 South Station concourse.jpg",
+   "author": "Beyond My Ken",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2017_South_Station_concourse.jpg",
+   "caption": "The interior of South Station in Boston, Massachusetts."
+  },
+  "station-NOL": {
+   "files": [
+    {
+     "file": "station-NOL-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 57036
+    },
+    {
+     "file": "station-NOL-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 25836
+    }
+   ],
+   "kind": "card",
+   "title": "Amtrak Union Station New Orleans (5393450048).jpg",
+   "author": "Loco Steve from Orpington, UK",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Amtrak_Union_Station_New_Orleans_(5393450048).jpg",
+   "caption": "The City of New Orleans Or The Crescent  waiting for action at new Orleans Station"
+  },
+  "city-NYP": {
+   "files": [
+    {
+     "file": "city-NYP-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 85034
+    },
+    {
+     "file": "city-NYP-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 34322
+    }
+   ],
+   "kind": "card",
+   "title": "At New York City 2025 001 - Hudson Yards skyline, New York, at night.jpg",
+   "author": "Photograph by Mike Peel (www.mikepeel.net).",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:At_New_York_City_2025_001_-_Hudson_Yards_skyline,_New_York,_at_night.jpg",
+   "caption": "Hudson Yards skyline, New York, at night"
+  },
+  "city-LAX": {
+   "files": [
+    {
+     "file": "city-LAX-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 47942
+    },
+    {
+     "file": "city-LAX-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 20050
+    }
+   ],
+   "kind": "card",
+   "title": "20190616154621!Echo Park Lake with Downtown Los Angeles Skyline.jpg",
+   "author": "Adoramassey",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:20190616154621!Echo_Park_Lake_with_Downtown_Los_Angeles_Skyline.jpg",
+   "caption": "Echo Park Lake with Downtown Los Angeles Skyline."
+  },
+  "city-BOS": {
+   "files": [
+    {
+     "file": "city-BOS-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 84934
+    },
+    {
+     "file": "city-BOS-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 33696
+    }
+   ],
+   "kind": "card",
+   "title": "Boston Back Bay reflection.jpg",
+   "author": "Robbie Shade",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Boston_Back_Bay_reflection.jpg",
+   "caption": "الأبنية المشيدة بالحجر البني في حي باك باي بمدينة بوسطن على نهر تشارلز."
+  },
+  "city-NOL": {
+   "files": [
+    {
+     "file": "city-NOL-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 43094
+    },
+    {
+     "file": "city-NOL-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 19538
+    }
+   ],
+   "kind": "card",
+   "title": "Bourbon Street French Quarter Restaurants, New Orleans, 1972.jpg",
+   "author": "Steven C. Spencer",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Bourbon_Street_French_Quarter_Restaurants,_New_Orleans,_1972.jpg",
+   "caption": "Bourbon Street at the intersection of Bienville Street,  French Quarter, New Orleans.  Restaurants seen on opposite corners, December 1972"
+  },
+  "city-SAN": {
+   "files": [
+    {
+     "file": "city-SAN-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 42318
+    },
+    {
+     "file": "city-SAN-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 15038
+    }
+   ],
+   "kind": "card",
+   "title": "Downtown San Diego.JPG",
+   "author": "Photographeroflife",
+   "licence": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Downtown_San_Diego.JPG",
+   "caption": "Downtown San Diego from Ski Beach in Mission Bay"
+  },
+  "city-PDX": {
+   "files": [
+    {
+     "file": "city-PDX-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 53440
+    },
+    {
+     "file": "city-PDX-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 23672
+    }
+   ],
+   "kind": "card",
+   "title": "2017-06-25 Portland skyline 02.jpg",
+   "author": "Kingofthedead",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2017-06-25_Portland_skyline_02.jpg",
+   "caption": "Portland skyline from Interstate 5"
+  },
+  "city-PHL": {
+   "files": [
+    {
+     "file": "city-PHL-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 50040
+    },
+    {
+     "file": "city-PHL-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 19674
+    }
+   ],
+   "kind": "card",
+   "title": "Philadelphia - Flickr - Justin Wolfe.jpg",
+   "author": "Justin Wolfe from Philadelphia, United States",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Philadelphia_-_Flickr_-_Justin_Wolfe.jpg",
+   "caption": "Please View LARGE"
+  },
+  "city-DEN": {
+   "files": [
+    {
+     "file": "city-DEN-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 15754
+    },
+    {
+     "file": "city-DEN-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 8480
+    }
+   ],
+   "kind": "card",
+   "title": "2020-04-17, Denver Coliseum and skyline, COVID-19 message.jpg",
+   "author": "Xnatedawgx",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2020-04-17,_Denver_Coliseum_and_skyline,_COVID-19_message.jpg",
+   "caption": "2020-04-17, Denver Coliseum and skyline, COVID-19 message"
+  },
+  "city-MKE": {
+   "files": [
+    {
+     "file": "city-MKE-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 56148
+    },
+    {
+     "file": "city-MKE-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 21864
+    }
+   ],
+   "kind": "card",
+   "title": "Milwaukee April 2024 5 (Milwaukee skyline from Milwaukee Pierhead Light).jpg",
+   "author": "Michael Barera",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Milwaukee_April_2024_5_(Milwaukee_skyline_from_Milwaukee_Pierhead_Light).jpg",
+   "caption": "A view of the city skyline from the Milwaukee Pierhead Light in Milwaukee, Wisconsin (United States)."
+  },
+  "city-ALB": {
+   "files": [
+    {
+     "file": "city-ALB-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 33872
+    },
+    {
+     "file": "city-ALB-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 14890
+    }
+   ],
+   "kind": "card",
+   "title": "2013-08-25 10 43 06 View of downtown Albany, New York from Interstate 787 northbound at Exit 3.jpg",
+   "author": "Famartin",
+   "licence": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2013-08-25_10_43_06_View_of_downtown_Albany,_New_York_from_Interstate_787_northbound_at_Exit_3.jpg",
+   "caption": "View of downtown Albany, New York from Interstate 787 northbound at Exit 3 on August 25th 2013"
+  },
+  "city-SAC": {
+   "files": [
+    {
+     "file": "city-SAC-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 133840
+    },
+    {
+     "file": "city-SAC-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 50458
+    }
+   ],
+   "kind": "card",
+   "title": "7th & Capitol Sacramento 2021.jpg",
+   "author": "ECTran71",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:7th_%26_Capitol_Sacramento_2021.jpg",
+   "caption": "7th &amp; Capitol Station looking southbound on 7th St in downtown Sacramento, CA, USA in December 2021"
+  },
+  "city-STL": {
+   "files": [
+    {
+     "file": "city-STL-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 18558
+    },
+    {
+     "file": "city-STL-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 8710
+    }
+   ],
+   "kind": "card",
+   "title": "Gateway Arch, St. Louis, Missouri.jpg",
+   "author": "Bobindrums",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Gateway_Arch,_St._Louis,_Missouri.jpg",
+   "caption": "This is an image of a place or building that is listed on the National Register of Historic Places in the United States of America. Its reference number is 87001423 (Wikidata)."
+  },
+  "city-EMY": {
+   "files": [
+    {
+     "file": "city-EMY-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 44390
+    },
+    {
+     "file": "city-EMY-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 16068
+    }
+   ],
+   "kind": "card",
+   "title": "2016-08-03 San Francisco Bay 11.jpg",
+   "author": "Kingofthedead",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2016-08-03_San_Francisco_Bay_11.jpg",
+   "caption": "San Francisco Bay from ferry"
+  },
+  "onboard-coach": {
+   "files": [
+    {
+     "file": "onboard-coach-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 26970
+    },
+    {
+     "file": "onboard-coach-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 13474
+    }
+   ],
+   "kind": "card",
+   "title": "Amtrak 2009 005.jpg",
+   "author": "Tampasteve (talk)",
+   "licence": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Amtrak_2009_005.jpg",
+   "caption": "Coach Class seats"
+  },
+  "onboard-sleeper": {
+   "files": [
+    {
+     "file": "onboard-sleeper-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 34670
+    },
+    {
+     "file": "onboard-sleeper-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 12468
+    }
+   ],
+   "kind": "card",
+   "title": "Amtrak Superliner II roomette in daytime configuration (50986322097).png",
+   "author": "Ben Schumin from Montgomery Village, Maryland, USA",
+   "licence": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Amtrak_Superliner_II_roomette_in_daytime_configuration_(50986322097).png",
+   "caption": "Amtrak Superliner II roomette in daytime configuration. This particular roomette is part of a transition sleeper car."
+  },
+  "onboard-dining": {
+   "files": [
+    {
+     "file": "onboard-dining-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 34594
+    },
+    {
+     "file": "onboard-dining-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 15830
+    }
+   ],
+   "kind": "card",
+   "title": "20120724 09 Amtrak Capitol Limited Dining car (8638363767).jpg",
+   "author": "David Wilson from Oak Park, Illinois, USA",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:20120724_09_Amtrak_Capitol_Limited_Dining_car_(8638363767).jpg",
+   "caption": "The dining car on the Amtrak Capitol Limited"
+  },
+  "onboard-lounge": {
+   "files": [
+    {
+     "file": "onboard-lounge-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 26090
+    },
+    {
+     "file": "onboard-lounge-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 12726
+    }
+   ],
+   "kind": "card",
+   "title": "20120730 77 Amtrak Capitol Sightseer Lounge (9108505380).jpg",
+   "author": "David Wilson from Oak Park, Illinois, USA",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:20120730_77_Amtrak_Capitol_Sightseer_Lounge_(9108505380).jpg",
+   "caption": "20120730 77 Amtrak Capitol Sightseer Lounge"
+  },
+  "hero-2": {
+   "files": [
+    {
+     "file": "hero-2-1800.webp",
+     "w": 1800,
+     "h": 900,
+     "bytes": 69028
+    },
+    {
+     "file": "hero-2-1100.webp",
+     "w": 1100,
+     "h": 550,
+     "bytes": 31718
+    },
+    {
+     "file": "hero-2-700.webp",
+     "w": 700,
+     "h": 350,
+     "bytes": 15076
+    }
+   ],
+   "kind": "wide",
+   "title": "Amtrak SF - Chicago, Feb-2018 (39700956004).jpg",
+   "author": "Mitch Altman from San Francisco, USA",
+   "licence": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Amtrak_SF_-_Chicago,_Feb-2018_(39700956004).jpg",
+   "caption": "Gore Canyon, CO (near Kremmling, CO)\nseen from the California Zephyr\nSacramento\n\nFebruary-2018"
+  },
+  "station-LAX": {
+   "files": [
+    {
+     "file": "station-LAX-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 45204
+    },
+    {
+     "file": "station-LAX-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 21910
+    }
+   ],
+   "kind": "card",
+   "title": "20140830 24 Los Angeles Union Station (14917707654).jpg",
+   "author": "David Wilson from Oak Park, Illinois, USA",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:20140830_24_Los_Angeles_Union_Station_(14917707654).jpg",
+   "caption": "20140830 24 Los Angeles Union Station"
+  },
+  "station-SEA": {
+   "files": [
+    {
+     "file": "station-SEA-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 43498
+    },
+    {
+     "file": "station-SEA-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 18198
+    }
+   ],
+   "kind": "card",
+   "title": "King Street Station 03.jpg",
+   "author": "Ɱ",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:King_Street_Station_03.jpg",
+   "caption": "King Street Station in Seattle."
+  },
+  "city-SEA": {
+   "files": [
+    {
+     "file": "city-SEA-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 83760
+    },
+    {
+     "file": "city-SEA-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 33212
+    }
+   ],
+   "kind": "card",
+   "title": "Downtown Seattle skyline 4 from Space Needle May 2011.JPG",
+   "author": "M.O. Stevens",
+   "licence": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Downtown_Seattle_skyline_4_from_Space_Needle_May_2011.JPG",
+   "caption": "Downtown skyline in Seattle viewed from the w:Space Needle"
+  },
+  "station-CHI": {
+   "files": [
+    {
+     "file": "station-CHI-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 48226
+    },
+    {
+     "file": "station-CHI-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 22530
+    }
+   ],
+   "kind": "card",
+   "title": "20170205 25 Chicago Union Station.jpg",
+   "author": "David Wilson",
+   "licence": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:20170205_25_Chicago_Union_Station.jpg",
+   "caption": "Proposed concourse configuration."
+  },
+  "city-WAS": {
+   "files": [
+    {
+     "file": "city-WAS-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 58914
+    },
+    {
+     "file": "city-WAS-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 22750
+    }
+   ],
+   "kind": "card",
+   "title": "2018-03-26 – United States Capitol East Front, viewed from the northeast – Washington, D.C., United States.jpg",
+   "author": "Beethoven",
+   "licence": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2018-03-26_%E2%80%93_United_States_Capitol_East_Front,_viewed_from_the_northeast_%E2%80%93_Washington,_D.C.,_United_States.jpg",
+   "caption": "The United States Capitol's East Front in Washington, D.C., United States, viewed from the northeast. The Senate wing and the steps of the East Senate Entrance occupy the right sid"
+  },
+  "city-CHI": {
+   "files": [
+    {
+     "file": "city-CHI-900.webp",
+     "w": 900,
+     "h": 600,
+     "bytes": 130264
+    },
+    {
+     "file": "city-CHI-560.webp",
+     "w": 560,
+     "h": 373,
+     "bytes": 45634
+    }
+   ],
+   "kind": "card",
+   "title": "2022-06-14 Chicago, Illinois.jpg",
+   "author": "Pedro Szekely",
+   "licence": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2022-06-14_Chicago,_Illinois.jpg",
+   "caption": "Chicago, Illinois"
+  }
+ }
+}

@@ -4,6 +4,7 @@
 import { page, el, clear, qs, duration } from '../ui.js';
 import { Net, station, stateName, searchStations, dateFromYmd } from '../data.js';
 import { productsForRoute } from '../fares.js';
+import { loadPhotos, stationPhoto, photo, hasPhoto } from '../photos.js';
 
 await page({
   active: document.body.dataset.nav || '',
@@ -76,7 +77,11 @@ function paintRoutes() {
       const from = Net.stations[s.from];
       const to = Net.stations[s.to];
       const products = productsForRoute(r);
-      grid.append(el('article', { class: 'card' },
+      const rpic = photo(`route-${r.n.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '')}`,
+        { alt: '', sizes: '(max-width:700px) 100vw, 520px' });
+      grid.append(el('article', { class: 'card', style: rpic ? 'padding:0;overflow:hidden' : '' },
+        rpic ? el('div', { class: 'media media-wide' }, rpic) : null,
+        el('div', { style: rpic ? 'padding:var(--sp-5)' : '' },
         el('div', { class: 'row row-between row-wrap', style: 'gap:var(--sp-2)' },
           el('h2', { style: 'font-size:var(--step-1)' }, r.n),
           el('span', { class: r.mode === 'bus' ? 'badge badge-info' : 'badge badge-brand' },
@@ -91,7 +96,7 @@ function paintRoutes() {
         el('div', { class: 'row row-wrap mt-4', style: 'gap:var(--sp-2)' },
           products.map((p) => el('span', { class: 'badge' }, p.name))),
         r.res ? null : el('p', { class: 'text-mute mt-2', style: 'font-size:var(--step--2)' },
-          'Unreserved — no seat is held for you.')));
+          'Unreserved — no seat is held for you.'))));
     }
     mount.append(grid);
   }
@@ -137,7 +142,10 @@ function paintStations() {
     const grid = el('div', { class: 'grid grid-3' });
     for (const s of results) {
       const routes = (s.r || []).map((i) => Net.routes[i]).filter(Boolean);
-      grid.append(el('article', { class: 'card' },
+      const pic = stationPhoto(s.c, { alt: '', sizes: '(max-width:700px) 100vw, 340px' });
+      grid.append(el('article', { class: 'card', style: pic ? 'padding:0;overflow:hidden' : '' },
+        pic ? el('div', { class: 'media' }, pic) : null,
+        el('div', { style: pic ? 'padding:var(--sp-5)' : '' },
         el('div', { class: 'row row-between', style: 'gap:var(--sp-2);align-items:flex-start' },
           el('h2', { style: 'font-size:var(--step-0)' }, s.n),
           el('span', { class: 'combo-option-code' }, s.c)),
@@ -151,7 +159,7 @@ function paintStations() {
           }, r.n)),
           routes.length > 4 ? el('span', { class: 'badge' }, `+${routes.length - 4}`) : null),
         el('p', { class: 'text-mute mt-4', style: 'font-size:var(--step--2)' },
-          `${s.w} calls a week · ${s.tz.split('/')[1].replace('_', ' ')}`)));
+          `${s.w} calls a week · ${s.tz.split('/')[1].replace('_', ' ')}`))));
     }
     mount.append(grid);
   }
@@ -210,6 +218,8 @@ function paintFeedPanel() {
 
 /* Dispatch last: paintRoutes reads CATS, which is a const declared above it and
    therefore in its temporal dead zone until the module body has run. */
+await loadPhotos();
+
 const which = document.body.dataset.page;
 if (which === 'routes') paintRoutes();
 else if (which === 'stations') paintStations();

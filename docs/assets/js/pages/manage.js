@@ -3,7 +3,7 @@
 import { page, el, clear, qs, duration, clockAt, toast } from '../ui.js';
 import { Net } from '../data.js';
 import { money, Theme } from '../theme.js';
-import { loadBookings, findBooking, cancelBooking, isPast } from '../booking.js';
+import { loadBookings, findBooking, cancelBooking, isPast, normaliseReference } from '../booking.js';
 
 await page({ active: 'manage', depth: Number(document.body.dataset.depth || 0), needsNetwork: true });
 
@@ -86,7 +86,7 @@ function card(b, highlight) {
 qs('#find-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const err = qs('#find-error');
-  const pnr = qs('#pnr').value.trim().toUpperCase();
+  const pnr = normaliseReference(qs('#pnr').value);
   const last = qs('#lastname').value.trim();
   err.textContent = '';
 

@@ -127,20 +127,15 @@ export function mountChrome({ active = '', depth = 0 } = {}) {
     mq.addEventListener('change', sync);
     sync();
 
-    inner.append(el('span', { class: 'spacer' }), toggle, nav, tenantSwitcher());
+    inner.append(el('span', { class: 'spacer' }), toggle, nav);
     header.append(inner);
   }
 
+  /* The retailer disclosure used to be a strip above the header on every page.
+     It is a legal necessity, not a headline, so it now sits once in the footer
+     and the strip is gone. */
   const strip = qs('#disclosure-strip');
-  if (strip) {
-    clear(strip);
-    strip.append(el('div', { class: 'wrap' },
-      el('span', {},
-        el('strong', {}, t.name), ' is an independent travel agency selling rail travel. ',
-        'Not affiliated with, endorsed by, or an agent of Amtrak.'),
-      el('span', { class: 'spacer' }),
-      el('a', { class: 'link-quiet', href: relative('about.html', depth) }, 'Who we are')));
-  }
+  if (strip) strip.remove();
 
   const footer = qs('#site-footer');
   if (footer) {
@@ -171,10 +166,9 @@ export function mountChrome({ active = '', depth = 0 } = {}) {
              ['fares.html', 'Fares and refunds'], ['contact.html', 'Contact us']]
               .map(([h, l]) => el('li', {}, el('a', { href: relative(h, depth) }, l))))),
         el('div', { class: 'footer-col' },
-          el('h2', {}, 'Platform'),
+          el('h2', {}, 'Legal'),
           el('ul', {},
-            [['platform.html', 'For agencies'], ['architecture.html', 'How it connects'],
-             ['agency/index.html', 'Agency console'], ['terms.html', 'Terms'], ['privacy.html', 'Privacy']]
+            [['terms.html', 'Terms'], ['privacy.html', 'Privacy'], ['credits.html', 'Photo credits']]
               .map(([h, l]) => el('li', {}, el('a', { href: relative(h, depth) }, l)))))),
       el('div', { class: 'footer-legal' },
         el('p', {}, `${t.legalName}. ${t.legal.note}`),
@@ -187,22 +181,6 @@ export function mountChrome({ active = '', depth = 0 } = {}) {
           'tickets are simulated. Nothing booked here is a real reservation and no ticket issued here ',
           'is valid for travel.'))));
   }
-}
-
-function tenantSwitcher() {
-  const wrap = el('div', { class: 'row', style: 'gap:var(--sp-2)' });
-  const select = el('select', {
-    class: 'select btn-sm',
-    'aria-label': 'Switch storefront',
-    style: 'min-height:36px;width:auto;padding-block:4px;font-size:var(--step--2)',
-    onchange: (e) => {
-      const url = new URL(location.href);
-      url.searchParams.set('tenant', e.target.value);
-      location.href = url.toString();
-    },
-  }, Theme.tenants.map((t) => el('option', { value: t.id, selected: t.id === Theme.tenant.id }, t.name)));
-  wrap.append(select);
-  return wrap;
 }
 
 /* --------------------------------------------------------------------------
