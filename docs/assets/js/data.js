@@ -30,6 +30,7 @@ const DATA_BASE = new URL('../../data/', import.meta.url);
 
 export const Net = {
   loaded: false,
+  stationsLoaded: false,
   stations: [],
   routes: [],
   services: [],
@@ -41,22 +42,30 @@ export const Net = {
 };
 
 /* --------------------------------------------------------------------------
-   Loading
+   Loading, in two stages
+
+   The station list and the timetable are fetched separately and on purpose.
+   The search form only needs stations to work — its two comboboxes and its date
+   validation — and stations are a tenth of the payload. Loading both before
+   anything renders is what made the booking form the LAST thing to appear on
+   the page, behind 62 KB of timetable it does not use until the visitor
+   presses Find trains.
+
+   loadStations()  stations + provenance. Enough to render and use the form.
+   load()          the above plus routes, calendar and every trip decoded.
    -------------------------------------------------------------------------- */
+let stationsPromise = null;
 let loadPromise = null;
 
-export function load() {
-  if (loadPromise) return loadPromise;
-  loadPromise = (async () => {
-    const [stations, network, meta] = await Promise.all([
+export function loadStations() {
+  if (stationsPromise) return stationsPromise;
+  stationsPromise = (async () => {
+    const [stations, meta] = await Promise.all([
       fetch(new URL('stations.json', DATA_BASE)).then(assertOk),
-      fetch(new URL('network.json', DATA_BASE)).then(assertOk),
       fetch(new URL('meta.json', DATA_BASE)).then(assertOk),
     ]);
 
     Net.stations = stations;
-    Net.routes = network.routes;
-    Net.services = network.services;
     Net.meta = meta;
 
     stations.forEach((s, i) => {
@@ -65,7 +74,21 @@ export function load() {
       Net.byCode.set(s.c, s);
     });
 
-    Net.callsAt = stations.map(() => []);
+    Net.stationsLoaded = true;
+    return Net;
+  })();
+  return stationsPromise;
+}
+
+export function load() {
+  if (loadPromise) return loadPromise;
+  loadPromise = (async () => {
+    await loadStations();
+    const network = await fetch(new URL('network.json', DATA_BASE)).then(assertOk);
+
+    Net.routes = network.routes;
+    Net.services = network.services;
+    Net.callsAt = Net.stations.map(() => []);
 
     Net.trips = network.trips.map((t, ti) => {
       const seq = t[5];

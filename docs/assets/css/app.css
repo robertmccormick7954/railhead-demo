@@ -1436,3 +1436,30 @@ h4 { font-size: var(--step-0); letter-spacing: -0.005em; }
   .itinerary-split { grid-template-columns: minmax(0, 1fr); }
   .itinerary-photo { display: none; }
 }
+
+/* --------------------------------------------------------------------------
+   27. Reserved space while the page fills in
+   The search form is script-rendered, so the band it lives in reserves its
+   height up front — otherwise the whole page below shifts down the moment the
+   form appears, which on a phone moves the thing someone is already reaching
+   for. The cards below carry skeletons for the same reason.
+   -------------------------------------------------------------------------- */
+/* Measured, not guessed. The form changes height at the same two breakpoints
+   its grid does, so the reserve follows them exactly. */
+.search-reserve { min-height: 320px; }
+@media (max-width: 1080px) { .search-reserve { min-height: 648px; } }
+@media (max-width: 560px)  { .search-reserve { min-height: 800px; } }
+
+/* The board is script-filled too. Six rows plus its header. */
+#board:empty { min-height: 351px; }
+@media (max-width: 700px) { #board:empty { min-height: 438px; } }
+
+.media-card.is-loading { pointer-events: none; border-color: var(--rule-soft); }
+.skel-line {
+  height: 1.1em;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--sp-2);
+}
+.skel-short { width: 55%; }
+.skel-tiny { width: 38%; margin-bottom: 0; }
+.media.skeleton { border-radius: 0; }

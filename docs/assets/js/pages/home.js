@@ -1,7 +1,7 @@
 /* Home: hero, destination cards, named journeys, departure board. */
 
 import { page, el, clear, qs, duration } from '../ui.js';
-import { Net, station, dateFromYmd, ymdOf, addDays } from '../data.js';
+import { Net, station, dateFromYmd, ymdOf, addDays, load as loadNetwork } from '../data.js';
 import { mountBoard } from '../board.js';
 import { mountSearchForm } from '../searchform.js';
 import { findJourneys } from '../search.js';
@@ -33,14 +33,20 @@ const JOURNEYS = [
     blurb: 'The whole West Coast, much of it within sight of the ocean.' },
 ];
 
-await page({ active: 'book', depth: Number(document.body.dataset.depth || 0), needsNetwork: true });
-await loadPhotos();
+/* Stations only. The form is the reason anyone opened this page, so it must not
+   wait for the timetable, the photographs or anything below the fold. */
+await page({ active: 'book', depth: Number(document.body.dataset.depth || 0), needsStations: true });
 
 /* The search form sits on flat colour, not on a photograph. Measured across 16
    travel booking sites, 14 do it this way; only two float the form over a hero
    image. Photography starts immediately below, where it can be bounded, cropped
    and swapped without touching the contrast of the form. */
 mountSearchForm(qs('#search-mount'), { action: 'search.html' });
+
+/* Everything below needs the full timetable. Start it now, render the rest of
+   the page when it lands, and let the visitor start typing meanwhile. */
+const networkReady = loadNetwork();
+await Promise.all([networkReady, loadPhotos()]);
 
 /* ---- destinations ---- */
 const when = ymdOf(addDays(new Date(), 21));

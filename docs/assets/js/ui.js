@@ -396,8 +396,11 @@ export function paymentList(ids = Theme.tenant?.payments || []) {
  * network data only if the page asked for it — the content pages do not need
  * 62 KB of timetable.
  */
-export async function page({ active = '', depth = 0, needsNetwork = false } = {}) {
+export async function page({ active = '', depth = 0, needsNetwork = false, needsStations = false } = {}) {
   await bootTheme();
+  // Stations are cheap and the search form needs them; the timetable is not,
+  // and nothing above the fold does. Ask for the smallest thing that works.
+  if (needsStations && !needsNetwork) await Data.loadStations();
   if (needsNetwork) await Data.load();
   mountChrome({ active, depth });
   document.body.dataset.ready = 'true';
