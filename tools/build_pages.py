@@ -46,6 +46,16 @@ LAYOUT = """<!doctype html>
 <link rel="stylesheet" href="{root}assets/css/tokens.css">
 <link rel="stylesheet" href="{root}assets/css/app.css">
 <link rel="stylesheet" href="{root}assets/css/print.css" media="print">
+<!-- The module graph is a waterfall: the page fetches its script, which imports
+     ui.js, which imports theme.js and data.js, each a separate round trip before
+     anything can render. Declaring them up front collapses that, and the two
+     JSON files the first paint depends on are fetched in parallel with it. -->
+<link rel="modulepreload" href="{root}assets/js/pages/{script}.js">
+<link rel="modulepreload" href="{root}assets/js/ui.js">
+<link rel="modulepreload" href="{root}assets/js/theme.js">
+<link rel="modulepreload" href="{root}assets/js/data.js">
+<link rel="preload" href="{root}data/tenants.json" as="fetch" crossorigin>
+<link rel="preload" href="{root}data/stations.json" as="fetch" crossorigin>
 <script>
 /* Paint the storefront's brand colour before first paint, so the page does not
    flash the house palette and then repaint. */
