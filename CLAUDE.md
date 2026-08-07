@@ -10,6 +10,55 @@ A demo of a white-label rail booking platform the client wants to sell to small
 travel agencies, on the back of a stated Amtrak distribution contract. One
 deployment, several agency storefronts, each fully rebranded.
 
+## REDESIGN 2026-08-06 (round 2) — Bob rejected the first design outright
+
+His words: colour sense "pretty bad"; "no images anywhere, that's the BIGGEST
+FLAW"; "the highlight color is black and the text color is also black"; purple
+"looks terrible"; schemes "100% CRAP"; kill the agency dropdown; target "THE OLD
+AND THE YOUNG BOTH"; cut the extra text pages.
+
+**The black-on-black was a real bug and my QA missed it.** `applyTenant` set
+`--surface-invert` to the tenant's dark brand colour while `--text-invert` kept
+the value the DARK SCHEME had set for a *light* invert surface → footer at
+**1.29:1**. The gate only ever ran the light scheme. Fixed structurally: the text
+colour on an inverted surface is now COMPUTED from that surface and cannot be
+authored; `qa_site.py` gained `--scheme`.
+
+**Dark scheme deleted.** One design, half the colour pairs, and light-on-dark is
+worse for older readers with astigmatism.
+
+**New palette:** deep harbour blue `#0A5670` at **195°** — deliberately between
+Amtrak's navy (207°) and the rejected spruce (171°) so it reads as neither.
+Accent = warm ochre `#A15C00`, money and live status only. Body 7:1 AAA, brand
+link 7:1, footer 16:1. No purple anywhere.
+
+**38 real photographs** from Wikimedia Commons (`tools/fetch_images.py`), all
+commercially licensed, **none from amtrak.com** (copyrighted, ToU forbids it, and
+the site 403s this box anyway). Attribution auto-generated onto `credits.html`.
+⚠ Free-text Commons search is *dangerous*: it returned **Hamburg for "San Diego"**,
+**Hillary Clinton for "Washington DC"**, a **shooting memorial for "Sacramento"**
+and a **cartoon for "Boston"**. Fixed by requiring the subject in the file title +
+banning illustrations/panoramas/person-and-event subjects + rejecting a pre-2005
+year. ⚠ Two pixel-based sepia detectors (mean saturation, hue concentration) BOTH
+failed — most city photos are sky-dominated — and are left in the file documented
+as failures so nobody repeats them.
+
+**Built to the older-adult evidence** (NN/g, W3C WAI-AGE, WCAG 2.2): 18px body
+(14pt — measurably faster past 60), **44×44 targets** (SC 2.5.5, the one with no
+spacing exception; 2.5.8's 24px floor is what ruins calendars), 7:1 contrast, no
+hover-only, no icon-only, input normalised not rejected, card block encapsulated
+with a plain-language security line (Baymard: 19% abandon on card distrust).
+
+⚠ **Design research contradicted my first instinct and I changed course:**
+measured across 16 rail/airline/OTA sites, **14 of 16 put the search form on flat
+colour, not a photo**, and **imagery stops dead at the results page** (Google
+Flights results = 0 images). So the hero is flat brand colour with the form on it,
+photography starts in the band below, and the result row carries no picture — it
+reappears in the expanded itinerary.
+
+**Removed:** storefront switcher, the disclosure strip above every header (now one
+footer line), and `about.html`, `architecture.html`, `platform.html`.
+
 ## The one place I deliberately diverged from the brief
 
 Bob asked for a site "almost similar to Amtrak… same fonts, color themes" that
