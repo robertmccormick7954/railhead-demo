@@ -8,7 +8,8 @@ Built 2026-08-06. Status: **delivered, awaiting the client's review and Amtrak's
 
 A demo of a white-label rail booking platform the client wants to sell to small
 travel agencies, on the back of a stated Amtrak distribution contract. One
-deployment, several agency storefronts, each fully rebranded.
+deployment, one storefront on show; the multi-tenant engine underneath still
+rebrands per agency from `docs/data/tenants.json`.
 
 ## REDESIGN 2026-08-06 (round 2) — Bob rejected the first design outright
 
@@ -73,11 +74,12 @@ and did not use Amtrak's logo, wordmark or trade dress.** Reasons, in order:
 3. What the client is actually selling agencies is *their own* brand on the
    product. A clone of Amtrak would be the wrong demo.
 
-Instead: its own identity, plus a live tenant switcher proving three storefronts
-run off one deployment. Amtrak is named in body text only (nominative use).
+Instead: its own identity. Amtrak is named in body text only (nominative use).
 **If Bob pushes back, this is the decision to re-open — the theming engine can
 carry any palette he wants in one JSON edit; what should not come back is the
-logo and the implied affiliation.**
+logo and the implied affiliation.** (The tenant switcher that used to demo three
+storefronts was removed in round 2 at his instruction — one design only. The
+multi-tenant engine remains; the demo just presents a single storefront.)
 
 ## What is real vs simulated
 
